@@ -21,7 +21,7 @@ public class App {
         System.out.println(usuario.getCidade().getAgencia());
 
 
-        ContaCorrente contaCorrente = new ContaCorrente(usuario, usuario.getCidade().getAgencia() );
+        ContaCorrente contaCorrente = new ContaCorrente(usuario, usuario.getCidade() );
         System.out.println(contaCorrente);
         contaCorrente.depositar(200);
         System.out.println(contaCorrente);

@@ -16,8 +16,9 @@ public class ContaCorrente implements Conta{
     private double saldo;
     private final double juros= 0.15; //Taxa Mensal
 
-    public ContaCorrente(Usuario usuario , String agencia) {
+    public ContaCorrente(Usuario usuario , Cidade agencia) {
         this.usuario = usuario;
+        this.agencia = agencia;
         ID++;
         setNumConta();
         this.saldo = 0;
@@ -94,7 +95,7 @@ public class ContaCorrente implements Conta{
         return "ContaCorrente{" +
                 "usuario=" + usuario +
                 ", numContaCorrent='" + numContaCorrent + '\'' +
-                ", agencia=" + agencia +
+                ", agencia=" + agencia.getAgencia() +
                 ", saldo=" + saldo +
                 ", juros=" + juros +
                 '}';

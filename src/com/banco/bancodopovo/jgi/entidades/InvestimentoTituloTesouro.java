@@ -5,5 +5,8 @@ import com.banco.bancodopovo.jgi.modelo.Investimento;
 public class InvestimentoTituloTesouro implements Investimento {
 
 
+    @Override
+    public void fazerEmprestimo(double valor) {
 
+    }
 }
