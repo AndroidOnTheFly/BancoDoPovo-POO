@@ -1,33 +1,39 @@
 package com.banco.bancodopovo.jgi.visao;
 
-import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
-import com.banco.bancodopovo.jgi.entidades.Usuario;
-import com.banco.bancodopovo.jgi.enumeration.Cidade;
-import com.banco.bancodopovo.jgi.enumeration.TipoConta;
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.time.LocalDate;
-
-public class App {
-
-    public static void main(String[] args) throws SQLException, IOException, ClassNotFoundException {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 
-       Usuario usuario = new Usuario("André", "111.111.111-01", "andre@ifpb.com",
-              LocalDate.now(), "PB", Cidade.Cajazeiras, TipoConta.Corrente, "123456");
-        System.out.println(usuario.toString());
 
-        System.out.println(usuario.getCidade().getAgencia());
+public class App extends Application{
 
+    private int defaultWidth = 744;
+    private int defaultHeight = 543;
+    private int maxWidth = 780;
+    private int maxHeight = 560;
 
-        ContaCorrente contaCorrente = new ContaCorrente(usuario, usuario.getCidade() );
-        System.out.println(contaCorrente);
-        contaCorrente.depositar(200);
-        System.out.println(contaCorrente);
-
-        //launch(args);
-
-
+    public static void main(String[] args) {
+        launch(args);
     }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        Parent root = FXMLLoader.load(getClass().getResource("../telas/Home.fxml"));
+
+        Scene scene = new Scene(root,defaultWidth,defaultHeight);
+
+        primaryStage.setTitle("Banco do Povo");
+        primaryStage.setMinWidth(defaultWidth);
+        primaryStage.setMinHeight(defaultHeight);
+        primaryStage.setMaxHeight(maxHeight);
+        primaryStage.setMaxWidth(maxWidth);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+
 }
