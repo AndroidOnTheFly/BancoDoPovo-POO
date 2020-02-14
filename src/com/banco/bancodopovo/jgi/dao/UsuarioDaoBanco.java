@@ -4,90 +4,65 @@ import com.banco.bancodopovo.jgi.banco.ConFactory;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Set;
 
-public class DaoUsuarioBanco {
+public class UsuarioDaoBanco extends ConFactory {
 
-    private conFactory = new ConFactory();
+    private ConFactory conFactory;
 
-    public boolean salvar(Usuario usuario) throws SQLException, ClassNotFoundException, IOException {
-        return false;
-    }
-
-
-    public Usuario buscarPorEmail(String email) throws SQLException, ClassNotFoundException, IOException {
-        return null;
-    }
-
-    public Set<Usuario> getUsuarios() throws SQLException, ClassNotFoundException, IOException {
-        return null;
-    }
-}
-
-/*
-
+    public UsuarioDaoBanco(){
         conFactory = new ConFactory();
     }
 
-    @Override
-    public boolean salvar(Usuario usuario) throws SQLException,
-            ClassNotFoundException {
-        try(Connection connection = conFactory.getConnection()){
-            PreparedStatement pstmt = connection.prepareStatement(
-                "INSERT INTO usuario(email, nome, nascimento, senha)" +
-                    "VALUES (?,?,?,?)");
-            pstmt.setString(1, usuario.getEmail());
-            pstmt.setString(2, usuario.getNome());
-            pstmt.setDate(3,
-                    java.sql.Date.valueOf(usuario.getNascimento()));
-            pstmt.setString(4, usuario.getSenha());
+//    public boolean salvar(Usuario usuario) throws SQLException, ClassNotFoundException, IOException {
+//        getConnection();
+//        PreparedStatement statement =  getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS clientes (" +
+//                "nome VARCHAR(30)," +
+//                "cpf VARCHAR(15) PRIMARY KEY," +
+//                "numero INT);"
+//        );
+public boolean salvar(Usuario usuario) throws SQLException,
+        ClassNotFoundException {
 
-            return pstmt.executeUpdate() > 0;
-        }
+    Connection connection1 = conFactory.getConnection();
+    PreparedStatement statement = connection1.prepareStatement("CREATE TABLE IF NOT EXISTS clientes (" +
+            "nome VARCHAR(30)," +
+            "cpf VARCHAR(15) PRIMARY KEY," +
+            "numero INT);"
+
+    );
+    statement.executeUpdate();
+
+    System.out.println("Aqui");
+    return  true;
+
+
+    //
+    /*
+    try (Connection connection2 = conFactory.getConnection()) {
+        PreparedStatement pstmt = connection2.prepareStatement(
+                "INSERT INTO usuario(nome, cpf, email, nascimento, estado, cidade, tipoConta, senha)" +
+                        "VALUES (?,?,?,?,?,?,?,?");
+        pstmt.setString(1, usuario.getNome());
+        pstmt.setString(2, usuario.getCpf());
+        pstmt.setString(3, usuario.getEmail());
+        pstmt.setDate(4,
+                java.sql.Date.valueOf(usuario.getNascimento()));
+        pstmt.setString(5, usuario.getEstado());
+        pstmt.setObject(6, usuario.getCidade());
+        pstmt.setObject(5, usuario.getTipoConta());
+        pstmt.setString(3, usuario.getSenha());
+
+        return pstmt.executeUpdate() > 0;
+
 
     }
 
-    @Override
-    public Usuario buscarPorEmail(String email) throws SQLException,
-            ClassNotFoundException {
-        try(Connection connection = conFactory.getConnection()){
-            PreparedStatement pstm = connection.prepareStatement(
-                "SELECT * FROM usuario WHERE email = ?");
-            pstm.setString(1, email);
+    */
 
-            ResultSet rs = pstm.executeQuery();
-            if (rs.next()){
-                String nome = rs.getString("nome");
-                LocalDate nascimento = rs
-                        .getDate("nascimento").toLocalDate();
-                String senha = rs.getString("senha");
-                return new Usuario(email, nome, nascimento, senha);
-            }
-            return null;
-        }
-    }
 
-    @Override
-    public Set<Usuario> getUsuarios() throws SQLException,
-            ClassNotFoundException {
-        try(Connection connection = conFactory.getConnection()){
-            PreparedStatement pstmt = connection.prepareStatement(
-                "SELECT * FROM usuario");
-            Set<Usuario> usuarios = new HashSet<>();
-
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()){
-                String email = rs.getString("email");
-                String nome = rs.getString("nome");
-                LocalDate nascimento = rs
-                        .getDate("nascimento").toLocalDate();
-                String senha = rs.getString("senha");
-                usuarios.add(new Usuario(email, nome, nascimento, senha));
-            }
-            return usuarios;
-        }
-    }
-*
-*
-* */
+}
+}

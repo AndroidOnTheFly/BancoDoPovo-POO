@@ -12,9 +12,9 @@ public class ConFactory {
 
     public ConFactory() {
         //Dica - Colocar essas informações em um arquivo (não público)
-        url = "jdbc:postgresql://localhost:5432/banco_do_povo_poo";
+        url = "jdbc:postgresql://localhost:5432/POO";
         usuario = "postgres";
-        senha = "123456";
+        senha = "Luta1234";
     }
 
     public Connection getConnection() throws ClassNotFoundException,
