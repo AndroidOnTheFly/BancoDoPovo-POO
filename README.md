@@ -1,1 +1,11 @@
-# BancoDoPovo-POO
+# Banco Do Povo - POO
+
+Projeto da Disciplina de POO do Curso de ADS-IFPB-CZ, 2019.2.
+
+Desenvolvido por:
+
+FRANCISCO IARLYSON SANTANA DE ANDRADE;
+
+GUSTAVO ARAUJO MEDEIROS;
+
+JOÃO PEDRO FERNANDES DE VASCONCELOS.
