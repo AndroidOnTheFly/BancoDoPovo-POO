@@ -1,4 +1,4 @@
-package com.banco.bancodopovo.jgi.objetos;
+package com.banco.bancodopovo.jgi.entidades;
 
 import com.banco.bancodopovo.jgi.modelo.Investimento;
 
