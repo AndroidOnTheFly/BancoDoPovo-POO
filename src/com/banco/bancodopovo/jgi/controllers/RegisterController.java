@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import com.banco.bancodopovo.jgi.validations.Validations;
-import java.time.format.DateTimeFormatter;
+import com.banco.bancodopovo.jgi.banco.ConFactory;
 
 
 
@@ -44,15 +44,7 @@ public class RegisterController {
     private void initialize(){
         selectCity.getItems().addAll("Cajazeiras","Uiraúna","JocaClaudino");
     }
-    @FXML
-    void goBackToHome(MouseEvent event) throws IOException {
-        Parent homeView = FXMLLoader.load(getClass().getResource("../telas/Home.fxml"));
-        Scene registerScene = new Scene(homeView);
-        Stage homeWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        homeWindow.setScene(registerScene);
-        homeWindow.show();
 
-    }
     @FXML
     void register(ActionEvent event) throws IOException {
 
@@ -73,36 +65,15 @@ public class RegisterController {
         int cpfValidation =  Validations.validarCPF(cpf,true);
         String dateValidation = Validations.validarDate(date);
 
-        if(nameValidation){
-            System.out.println("Está tudo ok com o nome");
+        if(!nameValidation || !emailValidation || passValidation != 1 || cpfValidation != 0 || dateValidation == null){
+            (new AlertController()).alertMessage("Erro ao efetuar cadastro!\nVerifique os campos:\n" + (!nameValidation ? "Nome," : "") + (!emailValidation ? "Email," : "")
+            + ((passValidation == 0 || passValidation == 2) ? "Senha," : "") + (cpfValidation != 0 ? "Cpf," : "")
+            + (dateValidation == null ? "Data de nascimento" : ""));
+        }else{
+            (new AlertController()).alertMessage("Cadastro realizado com sucesso!");
+            ConFactory connection = new ConFactory();
+
         }
-
-        if(emailValidation) {
-            System.out.println("Está tudo ok com o email");
-        }
-
-        if(passValidation == 1){
-            System.out.println("Está tudo ok com a senha");
-        }
-
-        if(cpfValidation == 0){
-            System.out.println("Está tudo ok com o cpf");
-        }
-
-        if(dateValidation != null){
-            System.out.println("Está tudo ok com a data");
-        }
-
-        if(city != null) {
-            System.out.println("City is ok, city: "+ city);
-        }
-
-
-
-
-
-
-
 
 
     }

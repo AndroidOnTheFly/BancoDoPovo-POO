@@ -55,7 +55,7 @@
             <Font name="Cambria" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="estadoInput" disable="true" layoutX="398.0" layoutY="314.0" prefHeight="36.0" prefWidth="251.0" promptText="Estado" text="Paraíba">
+      <TextField fx:id="estadoInput" disable="true" layoutX="398.0" layoutY="373.0" prefHeight="36.0" prefWidth="251.0" promptText="Estado" text="Estado: Paraíba">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
@@ -77,6 +77,6 @@
             <Font name="Cambria Bold" size="16.0" />
          </font>
       </CheckBox>
-      <ComboBox fx:id="selectCity" layoutX="398.0" layoutY="373.0" prefHeight="36.0" prefWidth="251.0" promptText="Cidade" style="-fx-background-color: white;" />
+      <ComboBox fx:id="selectCity" layoutX="398.0" layoutY="314.0" prefHeight="36.0" prefWidth="251.0" promptText="Cidade" style="-fx-background-color: white;" />
    </children>
 </AnchorPane>
