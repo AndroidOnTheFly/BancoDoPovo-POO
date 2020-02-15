@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -22,17 +24,17 @@
             <Font name="Cambria" size="16.0" />
          </font>
       </TextField>
-      <Button alignment="BASELINE_LEFT" layoutX="429.0" layoutY="373.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="189.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Cadastre-se" textFill="WHITE">
+      <Button alignment="BASELINE_LEFT" layoutX="418.0" layoutY="456.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="189.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Cadastre-se" textFill="WHITE">
          <font>
             <Font name="Cambria Bold" size="17.0" />
          </font>
       </Button>
-      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="560.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="558.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/arrow.png" />
          </image>
       </ImageView>
-      <TextField layoutX="398.0" layoutY="198.0" prefHeight="36.0" prefWidth="251.0" promptText="CPF">
+      <TextField layoutX="398.0" layoutY="253.0" prefHeight="36.0" prefWidth="251.0" promptText="CPF">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
@@ -52,12 +54,12 @@
             <Font name="Cambria" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="398.0" layoutY="253.0" prefHeight="36.0" prefWidth="251.0" promptText="Estado">
+      <TextField layoutX="398.0" layoutY="314.0" prefHeight="36.0" prefWidth="251.0" promptText="Estado">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="398.0" layoutY="314.0" prefHeight="36.0" prefWidth="251.0" promptText="Cidade">
+      <TextField layoutX="398.0" layoutY="373.0" prefHeight="36.0" prefWidth="251.0" promptText="Cidade">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
@@ -68,5 +70,16 @@
          </font>
       </PasswordField>
       <fx:include fx:id="menu" source="Menu.fxml" />
+      <DatePicker blendMode="LIGHTEN" cache="true" layoutX="398.0" layoutY="198.0" prefHeight="36.0" prefWidth="251.0" promptText="Selecione sua data de nascimento" />
+      <CheckBox layoutX="105.0" layoutY="445.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="141.0" text="Conta Corrente" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="105.0" layoutY="490.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="150.0" text="Conta poupança" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </CheckBox>
    </children>
 </AnchorPane>
