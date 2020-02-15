@@ -36,7 +36,7 @@
                   <Blend mode="GREEN" />
                </effect>
             </Button>
-            <Button layoutX="242.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Sobre" textFill="WHITE">
+            <Button fx:id="aboutButton" layoutX="242.0" layoutY="22.0" mnemonicParsing="false" onAction="#goToAbout" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Sobre" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -44,7 +44,7 @@
                   <Blend mode="GREEN" />
                </effect>
             </Button>
-            <Button layoutX="309.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Contato" textFill="WHITE">
+            <Button fx:id="contactButton" layoutX="309.0" layoutY="22.0" mnemonicParsing="false" onAction="#goToContact" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Contato" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

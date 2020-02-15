@@ -24,17 +24,14 @@ public class MenuController {
     private Button homeButton;
     @FXML
     private Button loginButton;
+    @FXML
+    private Button aboutButton;
+    @FXML
+    private Button contactButton;
 
     @FXML
     void goToSignUp(ActionEvent event) throws IOException {
         setSceneInWindow(event,"../telas/Register.fxml");
-        //Parent registerView = FXMLLoader.load(getClass().getResource("../telas/Register.fxml"));
-        //Scene registerScene = new Scene(registerView);
-
-        //Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        //window.setScene(registerScene);
-        //window.show();
     }
 
     @FXML
@@ -45,6 +42,14 @@ public class MenuController {
     @FXML
     void goToLogin(ActionEvent event) throws IOException {
         setSceneInWindow(event,"../telas/login.fxml");
+    }
+    @FXML
+    void goToAbout(ActionEvent event) throws IOException {
+        setSceneInWindow(event, "../telas/Sobre.fxml");
+    }
+    @FXML
+    void goToContact(ActionEvent event) throws IOException {
+        setSceneInWindow(event,"../telas/contact.fxml");
     }
 
     void setSceneInWindow(ActionEvent event, String pathToFxml ) throws IOException{
