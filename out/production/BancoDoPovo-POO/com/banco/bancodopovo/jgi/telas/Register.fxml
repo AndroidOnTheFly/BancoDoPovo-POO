@@ -19,12 +19,12 @@
             <Image url="@images/add.png" />
          </image>
       </ImageView>
-      <TextField layoutX="99.0" layoutY="198.0" prefHeight="36.0" prefWidth="251.0" promptText="Nome completo" style="-fx-background-color: #a9a9a9 , white , white;; -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;;">
+      <TextField fx:id="nameInput" layoutX="99.0" layoutY="198.0" prefHeight="36.0" prefWidth="251.0" promptText="Nome completo" style="-fx-background-color: #a9a9a9 , white , white;; -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;;">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
       </TextField>
-      <Button alignment="BASELINE_LEFT" layoutX="418.0" layoutY="456.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="189.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Cadastre-se" textFill="WHITE">
+      <Button fx:id="signUpBt" alignment="BASELINE_LEFT" layoutX="418.0" layoutY="456.0" mnemonicParsing="false" onAction="#register" prefHeight="57.0" prefWidth="189.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Cadastre-se" textFill="WHITE">
          <font>
             <Font name="Cambria Bold" size="17.0" />
          </font>
@@ -34,7 +34,7 @@
             <Image url="@images/arrow.png" />
          </image>
       </ImageView>
-      <TextField layoutX="398.0" layoutY="253.0" prefHeight="36.0" prefWidth="251.0" promptText="CPF">
+      <TextField fx:id="cpfInput" layoutX="398.0" layoutY="253.0" prefHeight="36.0" prefWidth="251.0" promptText="CPF">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
@@ -44,39 +44,39 @@
             <Font name="Cambria Bold" size="26.0" />
          </font>
       </Label>
-      <PasswordField layoutX="99.0" layoutY="314.0" prefHeight="36.0" prefWidth="251.0" promptText="Senha">
+      <PasswordField fx:id="passInput" layoutX="99.0" layoutY="314.0" prefHeight="36.0" prefWidth="251.0" promptText="Senha">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
       </PasswordField>
-      <TextField layoutX="99.0" layoutY="253.0" prefHeight="36.0" prefWidth="251.0" promptText="Email" style="-fx-background-color: #a9a9a9 , white , white;; -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;;">
+      <TextField fx:id="emailInput" layoutX="99.0" layoutY="253.0" prefHeight="36.0" prefWidth="251.0" promptText="Email" style="-fx-background-color: #a9a9a9 , white , white;; -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;;">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="398.0" layoutY="314.0" prefHeight="36.0" prefWidth="251.0" promptText="Estado">
+      <TextField fx:id="estadoInput" layoutX="398.0" layoutY="314.0" prefHeight="36.0" prefWidth="251.0" promptText="Estado">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="398.0" layoutY="373.0" prefHeight="36.0" prefWidth="251.0" promptText="Cidade">
+      <TextField fx:id="cityInput" layoutX="398.0" layoutY="373.0" prefHeight="36.0" prefWidth="251.0" promptText="Cidade">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="99.0" layoutY="373.0" prefHeight="36.0" prefWidth="251.0" promptText="Confirme sua senha">
+      <PasswordField fx:id="confirmPassInput" layoutX="99.0" layoutY="373.0" prefHeight="36.0" prefWidth="251.0" promptText="Confirme sua senha">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
       </PasswordField>
       <fx:include fx:id="menu" source="Menu.fxml" />
-      <DatePicker blendMode="LIGHTEN" cache="true" layoutX="398.0" layoutY="198.0" prefHeight="36.0" prefWidth="251.0" promptText="Selecione sua data de nascimento" />
-      <CheckBox layoutX="105.0" layoutY="445.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="141.0" text="Conta Corrente" textFill="WHITE">
+      <DatePicker fx:id="dateInput" blendMode="LIGHTEN" cache="true" layoutX="398.0" layoutY="198.0" prefHeight="36.0" prefWidth="251.0" promptText="Selecione sua data de nascimento" />
+      <CheckBox fx:id="ccBox" layoutX="105.0" layoutY="445.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="141.0" text="Conta Corrente" textFill="WHITE">
          <font>
             <Font name="Cambria Bold" size="16.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="105.0" layoutY="490.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="150.0" text="Conta poupança" textFill="WHITE">
+      <CheckBox fx:id="cpBox" layoutX="105.0" layoutY="490.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="150.0" text="Conta poupança" textFill="WHITE">
          <font>
             <Font name="Cambria Bold" size="16.0" />
          </font>

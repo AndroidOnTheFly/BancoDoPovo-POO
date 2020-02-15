@@ -5,16 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.event.ActionEvent;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class RegisterController {
 
@@ -23,9 +24,9 @@ public class RegisterController {
     @FXML
     private TextField emailInput;
     @FXML
-    private TextField passInput;
+    private PasswordField passInput;
     @FXML
-    private TextField confirmPassInput;
+    private PasswordField confirmPassInput;
     @FXML
     private TextField cpfInput;
     @FXML
@@ -41,5 +42,22 @@ public class RegisterController {
     @FXML
     private Button signUpBt;
 
+    @FXML
+    void register(ActionEvent event) throws IOException{
+
+        String name = nameInput.getText();
+        String cpf = cpfInput.getText();
+        String email = emailInput.getText();
+        String pass = passInput.getText();
+        String confirmPass = confirmPassInput.getText();
+        String date = dateInput.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String city = cityInput.getText();
+        String estado = estadoInput.getText();
+
+
+
+
+
+    }
 }
 
