@@ -1,5 +1,6 @@
 package com.banco.bancodopovo.jgi.controllers;
 
+import com.banco.bancodopovo.jgi.entidades.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,12 +11,13 @@ import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.time.LocalDate;
+
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+
+
 
 public class RegisterController {
 
@@ -40,10 +42,16 @@ public class RegisterController {
     @FXML
     private CheckBox cpBox;
     @FXML
-    private Button signUpBt;
+    void goBackToHome(MouseEvent event) throws IOException {
+        Parent homeView = FXMLLoader.load(getClass().getResource("../telas/Home.fxml"));
+        Scene registerScene = new Scene(homeView);
+        Stage homeWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        homeWindow.setScene(registerScene);
+        homeWindow.show();
 
+    }
     @FXML
-    void register(ActionEvent event) throws IOException{
+    void register(ActionEvent event) throws IOException {
 
         String name = nameInput.getText();
         String cpf = cpfInput.getText();
@@ -54,10 +62,8 @@ public class RegisterController {
         String city = cityInput.getText();
         String estado = estadoInput.getText();
 
-
-
-
-
     }
 }
+
+
 
