@@ -164,7 +164,7 @@ public class RegisterController {
                                 }
                                 //limite até o dia 10 de fevereiro deste ano
                                 if (mes == 2) {
-                                    if (dia > 0 && dia <= 10) {
+                                    if (dia > 0 && dia <= 18) {
                                         dataValida = true;
                                     }
                                 }
