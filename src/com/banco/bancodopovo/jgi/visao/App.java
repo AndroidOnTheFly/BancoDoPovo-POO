@@ -10,10 +10,10 @@ import javafx.stage.Stage;
 
 public class App extends Application{
 
-    private int defaultWidth = 744;
-    private int defaultHeight = 543;
-    private int maxWidth = 780;
-    private int maxHeight = 560;
+    private int defaultWidth = 780;
+    private int defaultHeight = 560;
+    private int maxWidth = 800;
+    private int maxHeight = 584;
 
     public static void main(String[] args) {
         launch(args);

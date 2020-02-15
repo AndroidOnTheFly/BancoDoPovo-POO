@@ -15,17 +15,6 @@ import java.io.IOException;
 
 public class RegisterController {
 
-    @FXML
-    private ImageView RegisterGoBack;
-
-    @FXML
-    void goBackToHome(MouseEvent event) throws IOException {
-        Parent homeView = FXMLLoader.load(getClass().getResource("../telas/Home.fxml"));
-        Scene registerScene = new Scene(homeView);
-        Stage homeWindow = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        homeWindow.setScene(registerScene);
-        homeWindow.show();
-    }
 
 }
 
