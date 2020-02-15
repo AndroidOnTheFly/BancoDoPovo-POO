@@ -42,7 +42,6 @@ public class RegisterController {
     @FXML
     private CheckBox cpBox;
     @FXML
-<<<<<<< HEAD
     void goBackToHome(MouseEvent event) throws IOException {
         Parent homeView = FXMLLoader.load(getClass().getResource("../telas/Home.fxml"));
         Scene registerScene = new Scene(homeView);
@@ -255,14 +254,5 @@ public class RegisterController {
     }
 }
 
-    }
 
-
-
-
-=======
-    private Button signUpBt;
->>>>>>> 54cde15ae9e047672845ffa92775d3c263bef1d1
-
-}
 
