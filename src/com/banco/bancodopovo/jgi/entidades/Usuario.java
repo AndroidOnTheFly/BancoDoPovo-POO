@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Usuario{
+
     private String nome;
     private String cpf;
     private String email;
