@@ -11,56 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="400.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="475.0" prefWidth="673.0" style="-fx-background-color: #2C2B3C;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banco.bancodopovo.jgi.controllers.HomeController">
    <children>
-      <AnchorPane layoutY="8.0" prefHeight="99.0" prefWidth="673.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label layoutX="35.0" layoutY="33.0" text="Banco do Povo" textFill="#fffffff3">
-               <font>
-                  <Font name="Cambria Bold" size="27.0" />
-               </font>
-            </Label>
-            <AnchorPane layoutX="262.0" layoutY="11.0" prefHeight="78.0" prefWidth="390.0" AnchorPane.rightAnchor="21.0">
-               <children>
-                  <Button contentDisplay="CENTER" layoutX="41.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Home" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="108.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Login" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <effect>
-                        <Blend mode="GREEN" />
-                     </effect>
-                  </Button>
-                  <Button fx:id="signUpButton" layoutX="175.0" layoutY="22.0" mnemonicParsing="false" onAction="#goToSignUp" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Cadastro" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <effect>
-                        <Blend mode="GREEN" />
-                     </effect>
-                  </Button>
-                  <Button layoutX="242.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Sobre" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <effect>
-                        <Blend mode="GREEN" />
-                     </effect>
-                  </Button>
-                  <Button layoutX="309.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Contato" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <effect>
-                        <Blend mode="GREEN" />
-                     </effect>
-                  </Button>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
+
       <StackPane layoutX="7.0" layoutY="99.0" minHeight="542.0" minWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="99.0">
          <children>
             <Label text="Bem vindo!" textFill="#fffffff3" StackPane.alignment="TOP_CENTER">
@@ -82,4 +33,5 @@
          </children>
       </StackPane>
    </children>
+   <fx:include source="Menu.fxml" fx:id="menu" />
 </AnchorPane>

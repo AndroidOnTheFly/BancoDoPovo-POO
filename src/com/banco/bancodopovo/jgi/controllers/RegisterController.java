@@ -8,6 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
@@ -19,9 +22,27 @@ import java.time.LocalDate;
 public class RegisterController {
 
     @FXML
-    private ImageView RegisterGoBack;
-
+    private TextField nameInput;
     @FXML
+    private TextField emailInput;
+    @FXML
+    private TextField passInput;
+    @FXML
+    private TextField confirmPassInput;
+    @FXML
+    private TextField cpfInput;
+    @FXML
+    private TextField estadoInput;
+    @FXML
+    private TextField cityInput;
+    @FXML
+    private DatePicker dateInput;
+    @FXML
+    private CheckBox ccBox;
+    @FXML
+    private CheckBox cpBox;
+    @FXML
+<<<<<<< HEAD
     void goBackToHome(MouseEvent event) throws IOException {
         Parent homeView = FXMLLoader.load(getClass().getResource("../telas/Home.fxml"));
         Scene registerScene = new Scene(homeView);
@@ -239,6 +260,9 @@ public class RegisterController {
 
 
 
+=======
+    private Button signUpBt;
+>>>>>>> 54cde15ae9e047672845ffa92775d3c263bef1d1
 
 }
 
