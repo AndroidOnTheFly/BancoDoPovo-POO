@@ -10,12 +10,10 @@ import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.time.LocalDate;
-
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import com.banco.bancodopovo.jgi.validations.Validations;
+import com.banco.bancodopovo.jgi.banco.ConFactory;
 
 
 
@@ -34,22 +32,19 @@ public class RegisterController {
     @FXML
     private TextField estadoInput;
     @FXML
-    private TextField cityInput;
+    private ComboBox selectCity;
     @FXML
     private DatePicker dateInput;
     @FXML
     private CheckBox ccBox;
     @FXML
     private CheckBox cpBox;
-    @FXML
-    void goBackToHome(MouseEvent event) throws IOException {
-        Parent homeView = FXMLLoader.load(getClass().getResource("../telas/Home.fxml"));
-        Scene registerScene = new Scene(homeView);
-        Stage homeWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        homeWindow.setScene(registerScene);
-        homeWindow.show();
 
+    @FXML
+    private void initialize(){
+        selectCity.getItems().addAll("Cajazeiras","Uiraúna","JocaClaudino");
     }
+
     @FXML
     void register(ActionEvent event) throws IOException {
 
@@ -58,9 +53,28 @@ public class RegisterController {
         String email = emailInput.getText();
         String pass = passInput.getText();
         String confirmPass = confirmPassInput.getText();
-        String date = dateInput.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        String city = cityInput.getText();
-        String estado = estadoInput.getText();
+        LocalDate date = dateInput.getValue();
+        String city = (String)selectCity.getValue();
+        String formattedDate;
+
+        //tratando o input do usuário
+
+        Boolean nameValidation = Validations.validarNome(name);
+        Boolean emailValidation = Validations.validarEmail(email);
+        int passValidation = Validations.validarSenha(pass,confirmPass);
+        int cpfValidation =  Validations.validarCPF(cpf,true);
+        String dateValidation = Validations.validarDate(date);
+
+        if(!nameValidation || !emailValidation || passValidation != 1 || cpfValidation != 0 || dateValidation == null){
+            (new AlertController()).alertMessage("Erro ao efetuar cadastro!\nVerifique os campos:\n" + (!nameValidation ? "Nome," : "") + (!emailValidation ? "Email," : "")
+            + ((passValidation == 0 || passValidation == 2) ? "Senha," : "") + (cpfValidation != 0 ? "Cpf," : "")
+            + (dateValidation == null ? "Data de nascimento" : ""));
+        }else{
+            (new AlertController()).alertMessage("Cadastro realizado com sucesso!");
+            ConFactory connection = new ConFactory();
+
+        }
+
 
     }
 }
