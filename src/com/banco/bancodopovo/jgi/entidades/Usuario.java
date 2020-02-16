@@ -2,10 +2,8 @@ package com.banco.bancodopovo.jgi.entidades;
 
 import com.banco.bancodopovo.jgi.enumeration.Cidade;
 import com.banco.bancodopovo.jgi.enumeration.TipoConta;
-import com.banco.bancodopovo.jgi.modelo.Conta;
 
-import javax.swing.*;
-import java.time.LocalDate;
+
 import java.util.Objects;
 
 public class Usuario{
@@ -13,14 +11,14 @@ public class Usuario{
     private String nome;
     private String cpf;
     private String email;
-    private LocalDate nascimento;
+    private String nascimento;
     private String estado;
     private Cidade cidade;
     private TipoConta tipoConta;
     private String senha;
 
 
-    public Usuario(String nome, String cpf, String email, LocalDate nascimento, String estado, Cidade cidade,  TipoConta tipoConta, String senha) {
+    public Usuario(String nome, String cpf, String email, String nascimento, String estado, Cidade cidade,  TipoConta tipoConta, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
@@ -54,11 +52,11 @@ public class Usuario{
         this.email = email;
     }
 
-    public LocalDate getNascimento() {
+    public String getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(LocalDate nascimento) {
+    public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
 

@@ -47,9 +47,4 @@ public class ConFactory {
         }
     }
 
-    //public Connection getConnection() throws ClassNotFoundException, SQLException {
-    //    Class.forName("org.postgresql.Driver");
-    //    return DriverManager.getConnection(url, usuario, senha);
-    //}
-
 }

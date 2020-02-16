@@ -13,10 +13,12 @@ import java.io.IOException;
 
 public class MenuController {
 
-    private int defaultWidth = 780;
-    private int defaultHeight = 560;
-    private int maxWidth = 800;
-    private int maxHeight = 584;
+    private int defaultWidth = 800;
+    private int defaultHeight = 584;
+    private int minWidth = 780;
+    private int minHeight = 560;
+    private int maxWidth = 840;
+    private int maxHeight = 624;
 
     @FXML
     private Button signUpButton;
@@ -56,8 +58,10 @@ public class MenuController {
         Parent view = FXMLLoader.load(getClass().getResource(pathToFxml));
         Scene sceneToShow = new Scene(view);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setMaxWidth(defaultWidth);
-        window.setMaxHeight(defaultHeight);
+        window.setWidth(defaultWidth);
+        window.setHeight(defaultHeight);
+        window.setMinWidth(minWidth);
+        window.setMinHeight(minHeight);
         window.setMaxHeight(maxHeight);
         window.setMaxWidth(maxWidth);
         window.setScene(sceneToShow);
