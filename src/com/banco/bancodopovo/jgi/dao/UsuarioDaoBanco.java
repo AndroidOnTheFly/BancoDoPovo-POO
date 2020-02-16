@@ -7,6 +7,7 @@ import com.banco.bancodopovo.jgi.modelo.UsuarioDao;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Set;
 
@@ -20,17 +21,21 @@ public class UsuarioDaoBanco implements UsuarioDao {
     }
 
     @Override
-    public boolean insertUsuario(Usuario usuario,String sql){
-        try{
+    public boolean insertUsuario(Usuario usuario){
 
-            int connectionResult = connection.executeSQL(sql);
-            if(connectionResult > 0){
-                return true;
-            }
-        }catch(Exception e){
-            e.printStackTrace();
+        String sql = "insert into cliente (cpf,nome,email,cidade,estado,nascimento,tipoconta,senha) values ("
+                + "'" + usuario.getCpf() + "'," + "'" + usuario.getNome() + "'," + "'" + usuario.getEmail()
+                + "'," + "'" + usuario.getCidade() + "'," + "'" + usuario.getEstado() + "'," +
+                "'" + usuario.getNascimento() + "',"
+                + "'" + usuario.getTipoConta() + "'," + "'" + usuario.getSenha() + "')";
+
+        int connectionResult = connection.executeSQL(sql,true);
+        if(connectionResult > 0){
+            return true;
         }
         return false;
+
+
     }
 
     @Override
@@ -48,7 +53,32 @@ public class UsuarioDaoBanco implements UsuarioDao {
         return false;
     }
 
+    @Override
+    public boolean validateRegister(Usuario usuario) {
 
+        ResultSet result = connection.getQueryResult("select * from cliente",false);
+        Boolean exists = null;
+        try{
+            //enquananto existir próximo cliente no bd
+            while(result.next()){
+
+                String checkedUserCpf = result.getString("cpf");
+                String checkedUserEmail = result.getString("email");
+
+                if(checkedUserCpf.equals(usuario.getCpf()) || checkedUserEmail.equals(usuario.getEmail())) {
+                    exists = true;
+                }
+            }
+
+            if(exists == null)
+                exists = false;
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+       return (exists == true ? false : true);
+    }
 
 
 }

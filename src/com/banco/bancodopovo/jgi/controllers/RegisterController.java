@@ -16,6 +16,7 @@ import com.banco.bancodopovo.jgi.enumeration.TipoConta;
 
 public class RegisterController {
 
+    AlertController alertController = new AlertController();
     @FXML
     private TextField nameInput;
     @FXML
@@ -66,25 +67,30 @@ public class RegisterController {
         TipoConta tipo = Validations.validarTipoConta(cc,cp);
 
         if(!nameValidation || !emailValidation || passValidation != 1 || !cpfValidation || dateValidation == null || city == null){
-            (new AlertController()).alertMessage("Erro ao efetuar cadastro!\nVerifique os campos:\n" + (!nameValidation ? "Nome," : "") + (!emailValidation ? "Email," : "")
+            alertController.alertMessage("Erro ao efetuar cadastro!\nVerifique os campos:\n" + (!nameValidation ? "Nome," : "") + (!emailValidation ? "Email," : "")
             + ((passValidation == 0 || passValidation == 2) ? "Senha," : "") + (!cpfValidation ? "Cpf," : "")
             + (dateValidation == null ? "Data de nascimento," : "") + (city == null ? "Cidade," : ""));
         }else if(cc.length() == 0 && cp.length() == 0){
-            (new AlertController()).alertMessage("Você deve selecionar pelo menos um tipo de conta!");
+            alertController.alertMessage("Você deve selecionar pelo menos um tipo de conta!");
         }else{
-            UsuarioDaoBanco usuarioDaoBanco = new UsuarioDaoBanco();
-            boolean userInserted = usuarioDaoBanco.insertUsuario(
-                    new Usuario(name,cpf,email,dateValidation,estadoInput.getText(),
-                            cidade,tipo,pass),
-                    "");
 
-            if(userInserted) {
-                (new AlertController()).alertMessage("Cadastro realizado com sucesso! :D");
+            Usuario newUser = new Usuario(name,cpf,email,dateValidation,estadoInput.getText(), cidade,tipo,pass);
+
+            UsuarioDaoBanco usuarioDaoBanco = new UsuarioDaoBanco();
+            Boolean isValidRegister = usuarioDaoBanco.validateRegister(newUser);
+            if(isValidRegister){
+
+                boolean success = usuarioDaoBanco.insertUsuario(newUser);
+
+                if(success) {
+                    alertController.alertMessage("Cadastro realizado com sucesso! :D");
+                }else{
+                   alertController.alertMessage("Ocorreu um erro ao tentar realizar o cadastro! Por favor, tente novamente!");
+                }
             }else{
-                (new AlertController()).alertMessage("Ocorreu um erro ao tentar realizar o cadastro! Por favor, tente novamente!");
+                alertController.alertMessage("Email ou cpf já existentes, por favor tente novamente!");
             }
 
-            //(t)
         }
 
 

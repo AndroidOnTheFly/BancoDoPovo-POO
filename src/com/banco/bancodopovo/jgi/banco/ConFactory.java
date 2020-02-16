@@ -23,11 +23,11 @@ public class ConFactory {
         }
     }
 
-    public int executeSQL(String sql){
+    public int executeSQL(String sql, Boolean closeConnection){
         try{
             Statement stm = connection.createStatement() ;
             int res = stm.executeUpdate(sql);
-            connection.close();
+            if(closeConnection) connection.close();
             return res;
         }catch(Exception e){
             e.printStackTrace();
@@ -35,11 +35,11 @@ public class ConFactory {
         }
     }
 
-    public ResultSet getQueryResult(String sql){
+    public ResultSet getQueryResult(String sql,Boolean closeConnection){
         try{
             Statement stm = connection.createStatement();
             ResultSet rs = stm.executeQuery(sql);
-            connection.close();
+            if(closeConnection) connection.close();
             return rs;
         }catch(Exception e){
             e.printStackTrace();

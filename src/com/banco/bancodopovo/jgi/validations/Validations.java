@@ -111,7 +111,7 @@ public class Validations {
         if(cc.length() != 0 && cp.length() == 0)
             tipo = TipoConta.Corrente;
         else if(cc.length() == 0 && cp.length() != 0)
-            tipo = TipoConta.Poupanpaça;
+            tipo = TipoConta.Poupança;
         else if(cc.length() != 0 && cp.length() != 0)
             tipo = TipoConta.Mista;
         else
