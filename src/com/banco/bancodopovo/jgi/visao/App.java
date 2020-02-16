@@ -1,11 +1,15 @@
 package com.banco.bancodopovo.jgi.visao;
 
+import com.banco.bancodopovo.jgi.entidades.Usuario;
+import com.banco.bancodopovo.jgi.enumeration.Cidade;
+import com.banco.bancodopovo.jgi.enumeration.TipoConta;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
 
 
 public class App extends Application{
@@ -17,7 +21,13 @@ public class App extends Application{
 
     public static void main(String[] args) {
         launch(args);
+
+        Usuario usuario = new Usuario("Iarlyson", "07048150440", "iarlyson.santana@outlook.com", LocalDate.now(),
+                "Paraíba", Cidade.JocaClaudino, TipoConta.Corrente,"123456");
+
+        System.out.println(usuario);
     }
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {

@@ -39,7 +39,6 @@ public class ContaCorrente implements Conta{
         this.usuario = usuario;
     }
 
-
     public Cidade getAgencia() {
         return agencia;
     }
