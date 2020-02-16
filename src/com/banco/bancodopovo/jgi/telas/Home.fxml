@@ -33,5 +33,5 @@
          </children>
       </StackPane>
    </children>
-   <fx:include source="Menu.fxml" fx:id="menu" />
+   <fx:include source="Menu.fxml" fx:id="menu"/>
 </AnchorPane>

@@ -1,12 +1,12 @@
 package com.banco.bancodopovo.jgi.controllers;
 
 import com.banco.bancodopovo.jgi.entidades.Usuario;
+import com.banco.bancodopovo.jgi.interfaceInteractions.UserConnectionInteraction;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import com.banco.bancodopovo.jgi.validations.Validations;
 import com.banco.bancodopovo.jgi.dao.UsuarioDaoBanco;
@@ -76,14 +76,13 @@ public class RegisterController {
 
             Usuario newUser = new Usuario(name,cpf,email,dateValidation,estadoInput.getText(), cidade,tipo,pass);
 
-            UsuarioDaoBanco usuarioDaoBanco = new UsuarioDaoBanco();
-            Boolean isValidRegister = usuarioDaoBanco.validateRegister(newUser);
+            Boolean isValidRegister = UserConnectionInteraction.validateRegister(newUser);
             if(isValidRegister){
-
+                UsuarioDaoBanco usuarioDaoBanco = new UsuarioDaoBanco();
                 boolean success = usuarioDaoBanco.insertUsuario(newUser);
-
                 if(success) {
                     alertController.alertMessage("Cadastro realizado com sucesso! :D");
+                    //usuario cadastro no banco, deve ser redirecionado para a página de login!
                 }else{
                    alertController.alertMessage("Ocorreu um erro ao tentar realizar o cadastro! Por favor, tente novamente!");
                 }

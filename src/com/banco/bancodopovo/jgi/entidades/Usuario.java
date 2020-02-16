@@ -114,10 +114,6 @@ public class Usuario{
         return Objects.hash(nome, cpf, email, nascimento, estado, cidade, tipoConta, senha);
     }
 
-    public boolean autenticar(String email, String senha){
-        return this.email.equals(email) && this.senha.equals(senha);
-    }
-
     @Override
     public String toString() {
         return "Usuario{" +
