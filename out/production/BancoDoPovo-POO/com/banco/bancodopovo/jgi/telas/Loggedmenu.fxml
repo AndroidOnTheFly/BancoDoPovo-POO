@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane layoutY="8.0" prefHeight="99.0" prefWidth="673.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banco.bancodopovo.jgi.controllers.MenuController">
+    <children>
+        <Label layoutX="35.0" layoutY="33.0" text="Banco do Povo" textFill="#fffffff3">
+            <font>
+                <Font name="Cambria Bold" size="27.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="262.0" layoutY="11.0" prefHeight="78.0" prefWidth="390.0" AnchorPane.rightAnchor="21.0">
+            <children>
+                <Button fx:id="homeButton" contentDisplay="CENTER" layoutX="41.0" layoutY="22.0" mnemonicParsing="false" onAction="#goBackToHome" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Home" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="painelButton" layoutX="108.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Painel" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <effect>
+                        <Blend mode="GREEN" />
+                    </effect>
+                </Button>
+                <Button fx:id="aboutButton" layoutX="175.0" layoutY="22.0" mnemonicParsing="false"  onAction="#goToAbout" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Cadastro" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <effect>
+                        <Blend mode="GREEN" />
+                    </effect>
+                </Button>
+                <Button fx:id="contactButton" layoutX="242.0" layoutY="22.0" mnemonicParsing="false" onAction="#goToContact" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Sobre" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <effect>
+                        <Blend mode="GREEN" />
+                    </effect>
+                </Button>
+
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

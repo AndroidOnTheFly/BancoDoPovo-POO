@@ -1,4 +1,5 @@
 package com.banco.bancodopovo.jgi.controllers;
+import com.banco.bancodopovo.jgi.controllers.WindowController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -6,19 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MenuController {
 
-    private int defaultWidth = 800;
-    private int defaultHeight = 584;
-    private int minWidth = 780;
-    private int minHeight = 560;
-    private int maxWidth = 840;
-    private int maxHeight = 624;
 
     @FXML
     private Button signUpButton;
@@ -33,39 +27,25 @@ public class MenuController {
 
     @FXML
     void goToSignUp(ActionEvent event) throws IOException {
-        setSceneInWindow(event,"../telas/Register.fxml");
+        new WindowController().setSceneInWindow(event,"../telas/Register.fxml");
     }
 
     @FXML
     void goBackToHome(ActionEvent event) throws IOException {
-        setSceneInWindow(event,"../telas/Home.fxml");
+        new WindowController().setSceneInWindow(event,"../telas/Home.fxml");
     }
 
     @FXML
     void goToLogin(ActionEvent event) throws IOException {
-        setSceneInWindow(event,"../telas/login.fxml");
+        new WindowController().setSceneInWindow(event,"../telas/login.fxml");
     }
     @FXML
     void goToAbout(ActionEvent event) throws IOException {
-        setSceneInWindow(event, "../telas/Sobre.fxml");
+        new WindowController().setSceneInWindow(event, "../telas/Sobre.fxml");
     }
     @FXML
     void goToContact(ActionEvent event) throws IOException {
-        setSceneInWindow(event,"../telas/contact.fxml");
-    }
-
-    void setSceneInWindow(ActionEvent event, String pathToFxml ) throws IOException{
-        Parent view = FXMLLoader.load(getClass().getResource(pathToFxml));
-        Scene sceneToShow = new Scene(view);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setWidth(defaultWidth);
-        window.setHeight(defaultHeight);
-        window.setMinWidth(minWidth);
-        window.setMinHeight(minHeight);
-        window.setMaxHeight(maxHeight);
-        window.setMaxWidth(maxWidth);
-        window.setScene(sceneToShow);
-        window.show();
+        new WindowController().setSceneInWindow(event,"../telas/contact.fxml");
     }
 
 }

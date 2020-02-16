@@ -20,12 +20,12 @@
                   <Font name="Cambria Bold" size="22.0" />
                </font>
             </Text>
-            <TextField layoutX="68.0" layoutY="143.0" prefHeight="41.0" prefWidth="228.0" promptText="Digite seu email">
+            <TextField fx:id="emailInput" layoutX="68.0" layoutY="143.0" prefHeight="41.0" prefWidth="228.0" promptText="Digite seu email">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button alignment="BASELINE_LEFT" layoutX="125.0" layoutY="273.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Entrar" textFill="WHITE">
+            <Button fx:id="btLogin" alignment="BASELINE_LEFT" layoutX="125.0" layoutY="273.0" mnemonicParsing="false" onAction="#loginAutenticate" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 0,1,2; -fx-background-radius: 3,2,1; -fx-cursor: hand;" text="Entrar" textFill="WHITE">
                <font>
                   <Font name="Cambria Bold" size="17.0" />
                </font>
@@ -40,7 +40,7 @@
                   <Image url="@images/conecte-se.png" />
                </image>
             </ImageView>
-            <PasswordField layoutX="67.0" layoutY="203.0" prefHeight="41.0" prefWidth="228.0" promptText="Digite sua senha">
+            <PasswordField fx:id="passInput" layoutX="67.0" layoutY="203.0" prefHeight="41.0" prefWidth="228.0" promptText="Digite sua senha">
                <font>
                   <Font name="Cambria" size="16.0" />
                </font>

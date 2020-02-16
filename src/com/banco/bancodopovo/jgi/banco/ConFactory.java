@@ -17,7 +17,6 @@ public class ConFactory {
         try{
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url,usuario,senha);
-            System.out.println("Conexão realizada com sucesso");
         }catch(Exception e) {
             e.printStackTrace();
         }

@@ -50,9 +50,9 @@ public class UsuarioDaoBanco implements UsuarioDao {
     }
 
     @Override
-    public Usuario getUsuarioByEmail(String userEmail) {
+    public Usuario getUsuarioBy(String data,String bySearch) {
 
-        ResultSet result = connection.getQueryResult("SELECT * from cliente WHERE email = '" + userEmail + "'",true);
+        ResultSet result = connection.getQueryResult("SELECT * from cliente WHERE " + bySearch + "= '" + data + "'",false);
 
         int countRow = 0;
         String cpf = "", nome = "",email = "",cidade = "",estado = "",nascimento = "",tipoconta = "",senha = "", cc = "", cp = "";
@@ -85,33 +85,4 @@ public class UsuarioDaoBanco implements UsuarioDao {
         }
         return null;
     }
-
-    @Override
-    public boolean validateRegister(Usuario usuario) {
-
-        ResultSet result = connection.getQueryResult("select * from cliente",false);
-        Boolean exists = null;
-        try{
-            //enquananto existir próximo cliente no bd
-            while(result.next()){
-
-                String checkedUserCpf = result.getString("cpf");
-                String checkedUserEmail = result.getString("email");
-
-                if(checkedUserCpf.equals(usuario.getCpf()) || checkedUserEmail.equals(usuario.getEmail())) {
-                    exists = true;
-                }
-            }
-
-            if(exists == null)
-                exists = false;
-
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
-       return (exists == true ? false : true);
-    }
-
-
 }
