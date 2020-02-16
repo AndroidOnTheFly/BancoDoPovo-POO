@@ -1,19 +1,15 @@
 package com.banco.bancodopovo.jgi.entidades;
 
-import com.banco.bancodopovo.jgi.modelo.Conta;
 import com.banco.bancodopovo.jgi.modelo.Emprestimo;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class EmprestimoSalvarAperto implements Emprestimo {
-    //private ContaCorrente contaCorrente;
-    private double valor = 1000;
-    private final double juros = 1.05;
+public class EmprestimoSalvaSerasa implements Emprestimo {
+    private double valor = 10000;
+    private final double juros = 1.30;
 
-
-    public EmprestimoSalvarAperto() {
-
+    public EmprestimoSalvaSerasa() {
     }
 
     @Override
@@ -25,7 +21,7 @@ public class EmprestimoSalvarAperto implements Emprestimo {
     @Override
     public boolean pagarPartedeEmprestimo(double valorPagamentoPacial, ContaCorrente contaCorrente) throws SQLException, IOException, ClassNotFoundException {
         if (valorPagamentoPacial <= contaCorrente.getSaldo()) {
-            if (valorPagamentoPacial < valor * juros){
+            if (valorPagamentoPacial < valor * juros) {
                 valor = valor * juros;
                 contaCorrente.realizarSaque(valorPagamentoPacial);
                 valor = valor - valorPagamentoPacial;
@@ -38,8 +34,7 @@ public class EmprestimoSalvarAperto implements Emprestimo {
                 System.out.println(valor);
                 return true;
             }
-        }
-        else{
+        } else {
             System.out.println("Você não tem saldo suficiente para fazer tal operação");
             return false;
         }
@@ -47,20 +42,15 @@ public class EmprestimoSalvarAperto implements Emprestimo {
 
     @Override
     public boolean pagarTotalDeEmprestimo(ContaCorrente contaCorrente) throws SQLException, IOException, ClassNotFoundException {
-        if (valor*juros<=contaCorrente.getSaldo()){
+        if (valor * juros <= contaCorrente.getSaldo()) {
             valor = valor * juros;
             contaCorrente.realizarSaque(valor);
             valor = valor - valor;
             System.out.println(valor);
             return true;
-        }
-        else {
+        } else {
             System.out.println("Saldo Insuficiente");
             return false;
         }
     }
 }
-
-
-
-
