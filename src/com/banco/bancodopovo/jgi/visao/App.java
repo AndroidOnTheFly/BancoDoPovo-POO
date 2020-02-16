@@ -17,9 +17,26 @@ public class App extends Application{
     private int maxWidth = 840;
     private int maxHeight = 624;
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         launch(args);
+        /*Usuario usuario = new Usuario("André", "07048150440", "Iarlyson.santana@outlook.com",
+                LocalDate.now(), "Paraíba", Cidade.Cajazeiras, TipoConta.Corrente, "123456");
+
+        ContaCorrente contaCorrente = new ContaCorrente(usuario, usuario.getCidade().getAgencia());
+        ContaPoupanca contaPoupanca = new ContaPoupanca(usuario, usuario.getCidade().getAgencia());
+        System.out.println(contaCorrente.getSaldo());
+        EmprestimoSalvarAperto emprestimoSalvarAperto = new EmprestimoSalvarAperto();
+        emprestimoSalvarAperto.pegarEmprestimo(contaCorrente);
+        System.out.println(contaCorrente.getSaldo());
+        emprestimoSalvarAperto.pagarPartedeEmprestimo(500, contaCorrente);
+        System.out.println(contaCorrente.getSaldo());
+        contaCorrente.depositar(500);
+        emprestimoSalvarAperto.pagarTotalDeEmprestimo(contaCorrente);
+        System.out.println(contaPoupanca);
+    */
+
     }
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {

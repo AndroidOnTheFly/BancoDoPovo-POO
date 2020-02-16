@@ -12,11 +12,11 @@ public class ContaCorrente implements Conta{
     private Usuario usuario;
     private static int ID = 1000;
     private String numContaCorrent;
-    private Cidade agencia;
+    private String agencia;
     private double saldo;
-    private final double juros= 0.15; //Taxa Mensal
+    private final double juros= 1.15; //Taxa Mensal
 
-    public ContaCorrente(Usuario usuario , Cidade agencia) {
+    public ContaCorrente(Usuario usuario , String agencia) {
         this.usuario = usuario;
         this.agencia = agencia;
         ID++;
@@ -40,14 +40,6 @@ public class ContaCorrente implements Conta{
     }
 
 
-    public Cidade getAgencia() {
-        return agencia;
-    }
-
-    public void setAgencia(Cidade agencia) {
-        this.agencia = agencia;
-    }
-
     public double getSaldo() {
         return saldo;
     }
@@ -66,7 +58,7 @@ public class ContaCorrente implements Conta{
     @Override
     public boolean realizarSaque(double quantiaASacar) throws SQLException, ClassNotFoundException, IOException {
         //Tem saldo na conta?
-        if ((saldo-quantiaASacar) >=0){
+        if ((saldo-quantiaASacar*juros) >=0){
             saldo-= quantiaASacar;
             return true;
         }
@@ -82,9 +74,9 @@ public class ContaCorrente implements Conta{
 
     @Override
     public boolean transferir(Conta conta, double valor) throws SQLException, ClassNotFoundException, IOException {
-        if (valor <= saldo) {
-            this.realizarSaque(valor);
-            conta.depositar(500);
+        if (valor*juros <= saldo) {
+            this.realizarSaque(valor*juros);
+            conta.depositar(valor*juros);
             return true;
         }
         return false;
@@ -95,7 +87,7 @@ public class ContaCorrente implements Conta{
         return "ContaCorrente{" +
                 "usuario=" + usuario +
                 ", numContaCorrent='" + numContaCorrent + '\'' +
-                ", agencia=" + agencia.getAgencia() +
+                ", agencia=" + agencia +
                 ", saldo=" + saldo +
                 ", juros=" + juros +
                 '}';

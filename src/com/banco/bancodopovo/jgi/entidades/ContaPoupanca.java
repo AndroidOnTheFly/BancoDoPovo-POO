@@ -10,21 +10,29 @@ public class ContaPoupanca implements Conta {
 
     private Usuario usuario;
     private static int ID = 1000;
-    private String numContaCorrent;
-    private Cidade agencia;
+    private String numContaPoupanca;
+    private String agencia;
     private double saldo;
-    private final double juros= 0.15; //Taxa Mensal
+    private final double juros= 1.15; //Taxa Mensal
 
-    public ContaPoupanca(Usuario usuario, String numContaCorrent, Cidade agencia, double saldo) {
+    public ContaPoupanca(Usuario usuario, String agencia) {
         this.usuario = usuario;
-        this.numContaCorrent = numContaCorrent;
         this.agencia = agencia;
-        this.saldo = saldo;
+        ID++;
+        setNumConta();
+        this.saldo = 0;
+    }
+
+
+    private void setNumConta(){
+        int random = (int) (Math.random() * 100);
+        numContaPoupanca = ID + "" + random + usuario.getCpf().substring(0,2);
+        System.out.println(numContaPoupanca);
     }
 
     @Override
     public void depositar(double valorDepositado) {
-        saldo +=valorDepositado;
+        saldo +=valorDepositado*juros;
     }
 
     //metodo
@@ -55,6 +63,17 @@ public class ContaPoupanca implements Conta {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "ContaPoupanca{" +
+                "usuario=" + usuario +
+                ", numContaPoupanca='" + numContaPoupanca + '\'' +
+                ", agencia='" + agencia + '\'' +
+                ", saldo=" + saldo +
+                ", juros=" + juros +
+                '}';
     }
 }
 

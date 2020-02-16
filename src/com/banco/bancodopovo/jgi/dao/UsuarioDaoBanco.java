@@ -22,7 +22,7 @@ public class UsuarioDaoBanco implements UsuarioDao {
     @Override
     public boolean insertUsuario(Usuario usuario,String sql){
         try{
-            
+
             int connectionResult = connection.executeSQL(sql);
             if(connectionResult > 0){
                 return true;
