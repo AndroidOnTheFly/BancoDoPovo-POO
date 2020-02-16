@@ -1,6 +1,7 @@
 package com.banco.bancodopovo.jgi.visao;
 
 import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
+import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
 import com.banco.bancodopovo.jgi.entidades.EmprestimoSalvarAperto;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 import com.banco.bancodopovo.jgi.enumeration.Cidade;
@@ -29,7 +30,8 @@ public class App extends Application{
         Usuario usuario = new Usuario("André", "07048150440", "Iarlyson.santana@outlook.com",
                 LocalDate.now(), "Paraíba", Cidade.Cajazeiras, TipoConta.Corrente, "123456");
 
-        ContaCorrente contaCorrente = new ContaCorrente(usuario, Cidade.Cajazeiras);
+        ContaCorrente contaCorrente = new ContaCorrente(usuario, usuario.getCidade().getAgencia());
+        ContaPoupanca contaPoupanca = new ContaPoupanca(usuario, usuario.getCidade().getAgencia());
         System.out.println(contaCorrente.getSaldo());
         EmprestimoSalvarAperto emprestimoSalvarAperto = new EmprestimoSalvarAperto();
         emprestimoSalvarAperto.pegarEmprestimo(contaCorrente);
@@ -38,6 +40,7 @@ public class App extends Application{
         System.out.println(contaCorrente.getSaldo());
         contaCorrente.depositar(500);
         emprestimoSalvarAperto.pagarTotalDeEmprestimo(contaCorrente);
+        System.out.println(contaPoupanca);
 
 
     }
