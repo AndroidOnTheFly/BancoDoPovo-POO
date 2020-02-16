@@ -6,7 +6,7 @@ public interface UsuarioDao {
     boolean insertUsuario(Usuario usuario);
     boolean updateUsuario(Usuario usuario);
     boolean deleteUsuario(Usuario usuario);
-    boolean getUsuario(Usuario usuario);
+    Usuario getUsuarioByEmail(String email);
     boolean validateRegister(Usuario usuario);
 
 }
