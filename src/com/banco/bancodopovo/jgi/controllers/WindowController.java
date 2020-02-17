@@ -10,15 +10,16 @@ import java.io.IOException;
 
 public class WindowController {
 
-    private int defaultWidth = 800;
-    private int defaultHeight = 584;
-    private int minWidth = 780;
-    private int minHeight = 560;
-    private int maxWidth = 840;
-    private int maxHeight = 624;
+    public static Scene setSceneInWindow(ActionEvent event, String pathToFxml ) throws IOException {
 
-    public Scene setSceneInWindow(ActionEvent event, String pathToFxml ) throws IOException {
-        Parent view = FXMLLoader.load(getClass().getResource(pathToFxml));
+        int defaultWidth = 800;
+        int defaultHeight = 584;
+        int minWidth = 780;
+        int minHeight = 560;
+        int maxWidth = 840;
+        int maxHeight = 624;
+
+        Parent view = FXMLLoader.load(WindowController.class.getResource(pathToFxml));
         Scene sceneToShow = new Scene(view);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setWidth(defaultWidth);

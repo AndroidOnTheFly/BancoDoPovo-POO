@@ -28,7 +28,7 @@ public class MenuController {
 
     @FXML
     void goToSignUp(ActionEvent event) throws IOException {
-        new WindowController().setSceneInWindow(event,"../telas/Register.fxml");
+        WindowController.setSceneInWindow(event,"../telas/Register.fxml");
     }
 
     @FXML
@@ -37,19 +37,19 @@ public class MenuController {
         if(PanelController.currentUser != null)
             viewPath = "../telas/HomeL.fxml";
         else viewPath = "../telas/Home.fxml";
-        new WindowController().setSceneInWindow(event,viewPath);
+        WindowController.setSceneInWindow(event,viewPath);
     }
 
     @FXML
     void goToLogin(ActionEvent event) throws IOException {
-        new WindowController().setSceneInWindow(event,"../telas/login.fxml");
+        WindowController.setSceneInWindow(event,"../telas/login.fxml");
     }
     @FXML
     void goToAbout(ActionEvent event) throws IOException {
         if(PanelController.currentUser != null)
             viewPath = "../telas/SobreL.fxml";
         else viewPath = "../telas/Sobre.fxml";
-        new WindowController().setSceneInWindow(event,viewPath);
+        WindowController.setSceneInWindow(event,viewPath);
     }
     @FXML
     void goToContact(ActionEvent event) throws IOException {
@@ -58,12 +58,13 @@ public class MenuController {
         } else {
             viewPath = "../telas/contact.fxml";
         }
-        new WindowController().setSceneInWindow(event,viewPath);
+         WindowController.setSceneInWindow(event,viewPath);
     }
 
     @FXML
     void goToPainel(ActionEvent event) throws IOException {
-        Scene scene = new WindowController().setSceneInWindow(event,"../telas/painel.fxml");
+        Scene scene = WindowController.setSceneInWindow(event,"../telas/painel.fxml");
+        PanelController.currentScene = "painel";
         PanelController.setUserInfos(scene);
     }
 

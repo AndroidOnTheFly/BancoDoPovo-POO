@@ -19,15 +19,19 @@ public class ContaPoupanca implements Conta {
         this.usuario = usuario;
         this.agencia = agencia;
         ID++;
-        setNumConta();
         this.saldo = 0;
     }
 
-
-    private void setNumConta(){
+    public void setNumConta(){
         int random = (int) (Math.random() * 100);
         numContaPoupanca = ID + "" + random + usuario.getCpf().substring(0,2);
         System.out.println(numContaPoupanca);
+    }
+    public void setConta(String num){
+            numContaPoupanca = num;
+    }
+    public void setSaldo(double s){
+        saldo = s;
     }
 
     @Override
@@ -47,7 +51,10 @@ public class ContaPoupanca implements Conta {
         return false;
     }
 
-
+    public String getAgencia() { return agencia; };
+    public String getNumContaPoupanca(){ return numContaPoupanca; }
+    public Usuario getUsuario() { return usuario; };
+    public double getSaldo() { return saldo; }
     @Override
     public void consultarSaldo() {
         System.out.println("Saldo Atual da conta = " + saldo);

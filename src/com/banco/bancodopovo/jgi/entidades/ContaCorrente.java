@@ -2,9 +2,6 @@ package com.banco.bancodopovo.jgi.entidades;
 
 import com.banco.bancodopovo.jgi.enumeration.Cidade;
 import com.banco.bancodopovo.jgi.modelo.Conta;
-
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.Objects;
 
 public class ContaCorrente implements Conta{
@@ -20,16 +17,20 @@ public class ContaCorrente implements Conta{
         this.usuario = usuario;
         this.agencia = agencia;
         ID++;
-        setNumConta();
+        
         this.saldo = 0;
     }
 
-    private void setNumConta(){
+     public void setNumConta(){
         int random = (int) (Math.random() * 100);
         numContaCorrent = ID + "" + random + usuario.getCpf().substring(0,2);
-        System.out.println(numContaCorrent);
     }
 
+    public void setConta(String num){
+        numContaCorrent = num;
+    }
+
+    public String getAgencia() { return agencia; };
     public Usuario getUsuario() {
         return usuario;
     }
@@ -41,6 +42,7 @@ public class ContaCorrente implements Conta{
     public double getSaldo() {
         return saldo;
     }
+    public String getNumContaCorrent() { return numContaCorrent; }
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
@@ -54,7 +56,7 @@ public class ContaCorrente implements Conta{
 
     //metodo
     @Override
-    public boolean realizarSaque(double quantiaASacar) throws SQLException, ClassNotFoundException, IOException {
+    public boolean realizarSaque(double quantiaASacar)  {
         //Tem saldo na conta?
         if ((saldo-quantiaASacar*juros) >=0){
             saldo-= quantiaASacar;
@@ -71,7 +73,7 @@ public class ContaCorrente implements Conta{
     }
 
     @Override
-    public boolean transferir(Conta conta, double valor) throws SQLException, ClassNotFoundException, IOException {
+    public boolean transferir(Conta conta, double valor)  {
         if (valor*juros <= saldo) {
             this.realizarSaque(valor*juros);
             conta.depositar(valor*juros);

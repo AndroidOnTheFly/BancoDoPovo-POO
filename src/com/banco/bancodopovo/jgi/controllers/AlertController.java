@@ -17,7 +17,6 @@ import java.io.IOException;
 
 public class AlertController {
 
-    private String title = "Erro ao efetuar cadastro";
 
     @FXML
     private Button alertButton;
@@ -31,9 +30,9 @@ public class AlertController {
     }
 
     @FXML
-    public void alertMessage(String message) throws IOException {
+    public static void alertMessage(String message,String title) throws IOException {
 
-        Parent alertView = FXMLLoader.load(getClass().getResource("/com/banco/bancodopovo/jgi/telas/alert.fxml"));
+        Parent alertView = FXMLLoader.load(AlertController.class.getResource("/com/banco/bancodopovo/jgi/telas/alert.fxml"));
 
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);

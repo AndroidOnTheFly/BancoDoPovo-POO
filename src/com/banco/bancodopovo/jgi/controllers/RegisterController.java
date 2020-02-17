@@ -1,7 +1,13 @@
 package com.banco.bancodopovo.jgi.controllers;
 
+import com.banco.bancodopovo.jgi.banco.HandleInteractions;
+import com.banco.bancodopovo.jgi.dao.ContaCorrenteDaoBanco;
+import com.banco.bancodopovo.jgi.dao.ContaPoupancaDaoBanco;
+import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
+import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
-import com.banco.bancodopovo.jgi.interfaceInteractions.UserConnectionInteraction;
+import com.banco.bancodopovo.jgi.banco.HandleInteractions;
+import com.banco.bancodopovo.jgi.modelo.Conta;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
@@ -16,7 +22,6 @@ import com.banco.bancodopovo.jgi.enumeration.TipoConta;
 
 public class RegisterController {
 
-    AlertController alertController = new AlertController();
     @FXML
     private TextField nameInput;
     @FXML
@@ -64,30 +69,34 @@ public class RegisterController {
         boolean cpfValidation =  Validations.isCPF(cpf);
         String dateValidation = Validations.validarDate(date);
         Cidade cidade = Validations.validarCidade(city);
+        String agencia = cidade.getAgencia();
         TipoConta tipo = Validations.validarTipoConta(cc,cp);
 
+
         if(!nameValidation || !emailValidation || passValidation != 1 || !cpfValidation || dateValidation == null || city == null){
-            alertController.alertMessage("Erro ao efetuar cadastro!\nVerifique os campos:\n" + (!nameValidation ? "Nome," : "") + (!emailValidation ? "Email," : "")
+           AlertController.alertMessage("Erro ao efetuar cadastro!\nVerifique os campos:\n" + (!nameValidation ? "Nome," : "") + (!emailValidation ? "Email," : "")
             + ((passValidation == 0 || passValidation == 2) ? "Senha," : "") + (!cpfValidation ? "Cpf," : "")
-            + (dateValidation == null ? "Data de nascimento," : "") + (city == null ? "Cidade," : ""));
+            + (dateValidation == null ? "Data de nascimento," : "") + (city == null ? "Cidade," : ""),"Dados incorretos");
         }else if(cc.length() == 0 && cp.length() == 0){
-            alertController.alertMessage("Você deve selecionar pelo menos um tipo de conta!");
+            AlertController.alertMessage("Você deve selecionar pelo menos um tipo de conta!","Erro ao selecionar conta");
         }else{
 
             Usuario newUser = new Usuario(name,cpf,email,dateValidation,"paraiba", cidade,tipo,pass);
 
-            Boolean isValidRegister = UserConnectionInteraction.validateRegister(newUser);
+            Boolean isValidRegister = HandleInteractions.validateRegister(newUser);
+
             if(isValidRegister){
                 UsuarioDaoBanco usuarioDaoBanco = new UsuarioDaoBanco();
                 boolean success = usuarioDaoBanco.insertUsuario(newUser);
                 if(success) {
-                    alertController.alertMessage("Cadastro realizado com sucesso! :D");
-                    //usuario cadastro no banco, deve ser redirecionado para a página de login!
+                    boolean contaInserida = HandleInteractions.validarTipoConta(newUser,agencia,tipo.getTipo());
+                    if(contaInserida)
+                        AlertController.alertMessage("Cadastro realizado com sucesso! :D","Cadastrado com sucesso");
                 }else{
-                   alertController.alertMessage("Ocorreu um erro ao tentar realizar o cadastro! Por favor, tente novamente!");
+                   AlertController.alertMessage("Ocorreu um erro ao tentar realizar o cadastro! Por favor, tente novamente!","Erro ao cadastrar");
                 }
             }else{
-                alertController.alertMessage("Email ou cpf já existentes, por favor tente novamente!");
+                AlertController.alertMessage("Email ou cpf já existentes, por favor tente novamente!","Dados inválidos");
             }
 
         }
