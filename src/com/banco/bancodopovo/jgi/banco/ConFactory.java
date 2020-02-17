@@ -10,9 +10,9 @@ public class ConFactory {
     private Connection connection;
 
     public ConFactory() {
-        url = "jdbc:postgresql://localhost:5432/POO";
+        url = "jdbc:postgresql://localhost:5432/banco_do_povo_poo";
         usuario = "postgres";
-        senha = "8975424";
+        senha = "Luta1234";
 
         try{
             Class.forName("org.postgresql.Driver");
