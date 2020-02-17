@@ -2,15 +2,10 @@ package com.banco.bancodopovo.jgi.dao;
 
 import com.banco.bancodopovo.jgi.banco.ConFactory;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
-import com.banco.bancodopovo.jgi.modelo.UsuarioDao;
+import com.banco.bancodopovo.jgi.interfaceDao.UsuarioDao;
 import com.banco.bancodopovo.jgi.validations.Validations;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Set;
 
 public class UsuarioDaoBanco implements UsuarioDao {
 

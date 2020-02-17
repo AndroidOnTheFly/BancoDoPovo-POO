@@ -30,7 +30,6 @@ public class ContaCorrente implements Conta{
         System.out.println(numContaCorrent);
     }
 
-
     public Usuario getUsuario() {
         return usuario;
     }
@@ -38,7 +37,6 @@ public class ContaCorrente implements Conta{
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
 
     public double getSaldo() {
         return saldo;

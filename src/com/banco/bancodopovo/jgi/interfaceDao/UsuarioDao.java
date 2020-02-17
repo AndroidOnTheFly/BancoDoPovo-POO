@@ -1,4 +1,4 @@
-package com.banco.bancodopovo.jgi.modelo;
+package com.banco.bancodopovo.jgi.interfaceDao;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 
 public interface UsuarioDao {

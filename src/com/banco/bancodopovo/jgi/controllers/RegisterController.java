@@ -74,7 +74,7 @@ public class RegisterController {
             alertController.alertMessage("Você deve selecionar pelo menos um tipo de conta!");
         }else{
 
-            Usuario newUser = new Usuario(name,cpf,email,dateValidation,estadoInput.getText(), cidade,tipo,pass);
+            Usuario newUser = new Usuario(name,cpf,email,dateValidation,"paraiba", cidade,tipo,pass);
 
             Boolean isValidRegister = UserConnectionInteraction.validateRegister(newUser);
             if(isValidRegister){

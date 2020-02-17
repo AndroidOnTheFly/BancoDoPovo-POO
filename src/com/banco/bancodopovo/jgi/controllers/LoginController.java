@@ -4,6 +4,7 @@ import com.banco.bancodopovo.jgi.dao.UsuarioDaoBanco;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 import com.banco.bancodopovo.jgi.interfaceInteractions.UserConnectionInteraction;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -26,9 +27,15 @@ public class LoginController {
         if(currentUser != null){
             if(currentUser.getSenha().equals(passInput.getText())){
                 //o usuário pode logar
-                new WindowController().setSceneInWindow(event,"../telas/painel.fxml");
+                Scene panelScene = new WindowController().setSceneInWindow(event,"../telas/painel.fxml");
+                PanelController.currentUser = currentUser;
+                //HomeController.currentUser = currentUser;
+                PanelController.setUserInfos(panelScene);
+
             }
         }
     }
+
+
 
 }

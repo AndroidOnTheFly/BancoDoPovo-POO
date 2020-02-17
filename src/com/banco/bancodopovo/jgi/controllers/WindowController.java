@@ -17,7 +17,7 @@ public class WindowController {
     private int maxWidth = 840;
     private int maxHeight = 624;
 
-    public void setSceneInWindow(ActionEvent event, String pathToFxml ) throws IOException {
+    public Scene setSceneInWindow(ActionEvent event, String pathToFxml ) throws IOException {
         Parent view = FXMLLoader.load(getClass().getResource(pathToFxml));
         Scene sceneToShow = new Scene(view);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -29,5 +29,8 @@ public class WindowController {
         window.setMaxWidth(maxWidth);
         window.setScene(sceneToShow);
         window.show();
+        return sceneToShow;
     }
+
+
 }
