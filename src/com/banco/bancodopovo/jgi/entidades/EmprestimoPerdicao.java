@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class EmprestimoPerdicao implements Emprestimo {
+
     private double valor = 4000;
     private final double juros = 1.20;
 
