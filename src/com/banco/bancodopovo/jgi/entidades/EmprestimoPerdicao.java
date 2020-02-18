@@ -5,6 +5,10 @@ import com.banco.bancodopovo.jgi.modelo.Emprestimo;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Classe responsável por representar um dos tipos de empréstimo
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class EmprestimoPerdicao implements Emprestimo {
 
     private double valor = 4000;
@@ -14,13 +18,14 @@ public class EmprestimoPerdicao implements Emprestimo {
 
     }
 
-
+    /** Relaciona um tipo de empréstimo à uma conta */
     @Override
     public boolean pegarEmprestimo(ContaCorrente contaCorrente) {
         contaCorrente.depositar(valor);
         return true;
     }
 
+    /** método responsável por realizar operação de pagamento parcial de empréstimos */
     @Override
     public boolean pagarPartedeEmprestimo(double valorPagamentoPacial, ContaCorrente contaCorrente) throws SQLException, IOException, ClassNotFoundException {
         if (valorPagamentoPacial <= contaCorrente.getSaldo()) {
@@ -43,7 +48,7 @@ public class EmprestimoPerdicao implements Emprestimo {
             return false;
         }
     }
-
+    /** método responsavel por pagar o total do valor de um empréstimo */
     @Override
     public boolean pagarTotalDeEmprestimo(ContaCorrente contaCorrente) throws SQLException, IOException, ClassNotFoundException {
         if (valor*juros<=contaCorrente.getSaldo()){

@@ -5,6 +5,11 @@ import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Interface modelo responsável por definir os métodos que serão implementados por todas as classes que representam um
+ * tipo de emprestimo
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public interface Emprestimo {
 
      boolean pegarEmprestimo(ContaCorrente contaCorrente);

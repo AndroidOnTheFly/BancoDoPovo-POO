@@ -11,14 +11,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
 import javafx.event.ActionEvent;
-import javafx.scene.layout.Pane;
-
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * Classe responsável ser o controlador da cena de interface "Login"
+ * Todos seus componentes e eventos são tratados aqui
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class LoginController {
 
     @FXML
@@ -28,6 +30,7 @@ public class LoginController {
     @FXML
     private PasswordField passInput;
 
+    /**Método responsável por autenticar um usuário ao tentar fazer login*/
     @FXML
     void loginAutenticate(ActionEvent event) throws IOException {
         Usuario currentUser = new UsuarioDaoBanco().getUsuarioBy(emailInput.getText(),"email");

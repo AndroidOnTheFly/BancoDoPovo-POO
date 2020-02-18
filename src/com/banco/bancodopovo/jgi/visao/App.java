@@ -7,7 +7,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-
+/**
+ * Classe principal da aplicação responsável por inicializar a tela primária
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class App extends Application{
 
     private int defaultWidth = 800;
@@ -19,25 +22,9 @@ public class App extends Application{
 
     public static void main(String[] args)  {
         launch(args);
-        /*Usuario usuario = new Usuario("André", "07048150440", "Iarlyson.santana@outlook.com",
-                LocalDate.now(), "Paraíba", Cidade.Cajazeiras, TipoConta.Corrente, "123456");
-
-        ContaCorrente contaCorrente = new ContaCorrente(usuario, usuario.getCidade().getAgencia());
-        ContaPoupanca contaPoupanca = new ContaPoupanca(usuario, usuario.getCidade().getAgencia());
-        System.out.println(contaCorrente.getSaldo());
-        EmprestimoSalvarAperto emprestimoSalvarAperto = new EmprestimoSalvarAperto();
-        emprestimoSalvarAperto.pegarEmprestimo(contaCorrente);
-        System.out.println(contaCorrente.getSaldo());
-        emprestimoSalvarAperto.pagarPartedeEmprestimo(500, contaCorrente);
-        System.out.println(contaCorrente.getSaldo());
-        contaCorrente.depositar(500); kkkk so fiz essa parte, tem q implementa o resto
-        emprestimoSalvarAperto.pagarTotalDeEmprestimo(contaCorrente);
-        System.out.println(contaPoupanca); tu precisa reabrir a ide, ja aconteceu isso cmg
-    */
-
     }
 
-
+    /** método padrão do javaFX que inicializa a aplicação e carrega a janela inicial */
     @Override
     public void start(Stage primaryStage) throws Exception {
 

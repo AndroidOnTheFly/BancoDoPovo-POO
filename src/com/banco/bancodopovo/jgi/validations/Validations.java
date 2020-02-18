@@ -6,10 +6,14 @@ import com.banco.bancodopovo.jgi.enumeration.TipoConta;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
-import java.util.stream.IntStream;
 
+/**
+ * Classe modelo responsável por armazenar métodos estáticos de validação de dados utilizados pelo sistema
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class Validations {
 
+    /** método responsável por validar um cpf */
     public static boolean isCPF(String CPF) {
 
         if (CPF.equals("00000000000") ||
@@ -59,7 +63,7 @@ public class Validations {
             return(false);
         }
     }
-
+    /** método responsável por validar o nome de um usuário */
     public static boolean validarNome(String nome){
         boolean v = nome.matches(".*\\d.*");
         if(!v && nome.length() > 4){
@@ -67,11 +71,12 @@ public class Validations {
         }
         return false;
     }
+    /** método responsável por validar o email de um usuário */
 
     public static boolean validarEmail(String email){
        return email.matches("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
     }
-
+    /** método responsável por validar a senha de um usuário */
     public static int validarSenha(String senha, String confirm){
         String passObj = new String(senha);
         String confirmPassObj = new String(confirm);
@@ -83,7 +88,7 @@ public class Validations {
         }
         return 2;
     }
-
+    /** método responsável por validar a data de nascimento de um usuário */
     public static String validarDate(LocalDate date){
         if(date == null){
             return null;
@@ -97,7 +102,7 @@ public class Validations {
             return data;
         }
     }
-
+    /** método responsável por validar a cidade de um usuário */
     public static Cidade validarCidade(String city){
         Cidade cidade;
         if(Cidade.Cajazeiras.name().equals(city))
@@ -111,17 +116,21 @@ public class Validations {
 
         return cidade;
     }
-
+    /** método responsável por validar o tipo de conta de um usuário */
     public static TipoConta validarTipoConta(String cc, String cp){
         TipoConta tipo;
-        if(cc.length() != 0 && cp.length() == 0)
+        if(cc.length() != 0 && cp.length() == 0) {
             tipo = TipoConta.Corrente;
-        else if(cc.length() == 0 && cp.length() != 0)
-            tipo = TipoConta.Poupança;
-        else if(cc.length() != 0 && cp.length() != 0)
+        }
+        else if(cc.length() == 0 && cp.length() != 0) {
+            tipo = TipoConta.Poupanca;
+        }
+        else if(cc.length() != 0 && cp.length() != 0) {
             tipo = TipoConta.Mista;
-        else
+        }
+        else {
             tipo = null;
+        }
 
         return tipo;
     }

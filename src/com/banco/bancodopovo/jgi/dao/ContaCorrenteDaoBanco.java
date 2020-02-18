@@ -2,16 +2,16 @@ package com.banco.bancodopovo.jgi.dao;
 
 import com.banco.bancodopovo.jgi.banco.ConFactory;
 import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
-import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 import com.banco.bancodopovo.jgi.interfaceDao.ContaDao;
 import com.banco.bancodopovo.jgi.modelo.Conta;
 
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
+/**
+ * Classe responsável por armazenar métodos de acesso de dados relacionados à uma conta corrente
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class ContaCorrenteDaoBanco implements ContaDao {
 
     private ConFactory connection;
@@ -20,6 +20,7 @@ public class ContaCorrenteDaoBanco implements ContaDao {
         connection = new ConFactory();
     }
 
+    /** método responsável por inserir uma conta corrente no banco de dados */
     @Override
     public boolean insertConta(Conta conta) {
         ContaCorrente c = (ContaCorrente) conta;
@@ -31,7 +32,7 @@ public class ContaCorrenteDaoBanco implements ContaDao {
         }
         return false;
     }
-
+    /** método responsável por selecionar dados de uma conta corrente armazenada no banco de dados */
     @Override
     public ContaCorrente getConta(Usuario cliente) {
         String sql = "SELECT * from contacorrente WHERE cpf = '"+cliente.getCpf()+"'";
@@ -59,7 +60,7 @@ public class ContaCorrenteDaoBanco implements ContaDao {
 
         return null;
     }
-
+    /** método responsável por atualizar informações de uma conta corrente armazenada no banco de dados */
     @Override
     public boolean updateConta(Conta conta,double novoSaldo) {
 
@@ -74,6 +75,7 @@ public class ContaCorrenteDaoBanco implements ContaDao {
 
     }
 
+    /** método responsável por deletar uma conta corrente armazenada no banco de dados */
     @Override
     public boolean deleteConta(Conta conta) {
         String sql = "DELETE FROM contacorrente WHERE numconta = '" + ((ContaCorrente)conta).getNumContaCorrent() + "'";
@@ -83,6 +85,7 @@ public class ContaCorrenteDaoBanco implements ContaDao {
         return false;
     }
 
+    /** método responsável por selecionar uma conta através do cpf de um usuário */
     @Override
     public Conta getContaByCpf(String cpf) {
         Usuario transferUser = new UsuarioDaoBanco().getUsuarioBy(cpf,"cpf");

@@ -3,12 +3,8 @@ package com.banco.bancodopovo.jgi.controllers;
 import com.banco.bancodopovo.jgi.dao.ContaCorrenteDaoBanco;
 import com.banco.bancodopovo.jgi.dao.ContaPoupancaDaoBanco;
 import com.banco.bancodopovo.jgi.dao.UsuarioDaoBanco;
-import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
-import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 import com.banco.bancodopovo.jgi.enumeration.Cidade;
-import com.banco.bancodopovo.jgi.enumeration.TipoConta;
-import com.banco.bancodopovo.jgi.modelo.Conta;
 import com.banco.bancodopovo.jgi.validations.Validations;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,10 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-
 import java.io.IOException;
 
+/**
+ * Classe responsável por ser a classe controladora da interface Perfil
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class PerfilController {
 
     @FXML

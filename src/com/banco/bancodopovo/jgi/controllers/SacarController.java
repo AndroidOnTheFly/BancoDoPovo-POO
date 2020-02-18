@@ -12,6 +12,11 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+
+/**
+ * Classe responsável por ser a classe controladora da interface Sacar
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class SacarController {
 
 
@@ -38,12 +43,13 @@ public class SacarController {
 
     @FXML
     private TextField valorSaqueInput;
+    /** método responsável por sair da tela de saque, redirecionando o usuário para o painel */
     @FXML
     void sair(ActionEvent event) throws IOException{
         Scene scene = WindowController.setSceneInWindow(event,"../telas/painel.fxml");
         PanelController.setUserInfos(scene);
     }
-
+    /** método responsável por realizar a operação de saque */
     @FXML
     void sacar(ActionEvent event) throws IOException, RuntimeException {
 

@@ -1,15 +1,15 @@
 package com.banco.bancodopovo.jgi.dao;
 
 import com.banco.bancodopovo.jgi.banco.ConFactory;
-import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 import com.banco.bancodopovo.jgi.interfaceDao.UsuarioDao;
 import com.banco.bancodopovo.jgi.validations.Validations;
-
 import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
 
+/**
+ * Classe responsável por armazenar métodos de acesso de dados relacionados à um usuário
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class UsuarioDaoBanco implements UsuarioDao {
 
 
@@ -19,6 +19,7 @@ public class UsuarioDaoBanco implements UsuarioDao {
        connection = new ConFactory();
     }
 
+    /** método responsável por inserir um usuário no banco de dados */
     @Override
     public boolean insertUsuario(Usuario usuario){
 
@@ -36,7 +37,7 @@ public class UsuarioDaoBanco implements UsuarioDao {
 
 
     }
-
+    /** método responsável por atualizar informações de um usuário no banco de dados */
     @Override
     public boolean updateUsuario(Usuario usuario) {
 
@@ -50,7 +51,7 @@ public class UsuarioDaoBanco implements UsuarioDao {
         }
         return false;
     }
-
+    /** método responsável deletar um usuário no banco de dados */
     @Override
     public boolean deleteUsuario(Usuario usuario) {
         String sql = "DELETE FROM cliente WHERE cpf = '" + usuario.getCpf() + "'";
@@ -59,7 +60,7 @@ public class UsuarioDaoBanco implements UsuarioDao {
             return true;
         return false;
     }
-
+    /** método responsável por selecionar um usuário no banco de dados através do seu cpf ou email */
     @Override
     public Usuario getUsuarioBy(String data,String bySearch) {
 

@@ -1,13 +1,7 @@
 package com.banco.bancodopovo.jgi.controllers;
 
 import com.banco.bancodopovo.jgi.banco.HandleInteractions;
-import com.banco.bancodopovo.jgi.dao.ContaCorrenteDaoBanco;
-import com.banco.bancodopovo.jgi.dao.ContaPoupancaDaoBanco;
-import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
-import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
-import com.banco.bancodopovo.jgi.banco.HandleInteractions;
-import com.banco.bancodopovo.jgi.modelo.Conta;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
@@ -19,7 +13,10 @@ import com.banco.bancodopovo.jgi.dao.UsuarioDaoBanco;
 import com.banco.bancodopovo.jgi.enumeration.Cidade;
 import com.banco.bancodopovo.jgi.enumeration.TipoConta;
 
-
+/**
+ * Classe responsável por ser a classe controladora da interface Registro
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class RegisterController {
 
     @FXML
@@ -43,11 +40,13 @@ public class RegisterController {
     @FXML
     private CheckBox cpBox;
 
+    /** método padrão do javafx para inicializar e setar dados em seus componentes */
     @FXML
     private void initialize(){
         selectCity.getItems().addAll("Cajazeiras","Uiraúna","JocaClaudino");
     }
 
+    /** método responsável por fazer o registro de um usuário */
     @FXML
     void register(ActionEvent event) throws IOException {
 

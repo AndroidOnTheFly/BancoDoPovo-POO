@@ -2,9 +2,12 @@ package com.banco.bancodopovo.jgi.entidades;
 
 import com.banco.bancodopovo.jgi.enumeration.Cidade;
 import com.banco.bancodopovo.jgi.enumeration.TipoConta;
-
-
 import java.util.Objects;
+
+/**
+ * Classe responsável por representar um usuário
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 
 public class Usuario{
 
@@ -17,6 +20,7 @@ public class Usuario{
     private TipoConta tipoConta;
     private String senha;
 
+    /** construtor para definir os valores inicias de dados relacionados a um objeto do tipo usuário */
 
     public Usuario(String nome, String cpf, String email, String nascimento, String estado, Cidade cidade,  TipoConta tipoConta, String senha) {
         this.nome = nome;
@@ -28,66 +32,67 @@ public class Usuario{
         this.tipoConta = tipoConta;
         this.senha = senha;
     }
-
+    /** getters e setter */
     public String getNome() {
         return nome;
     }
+    /** getters e setter */
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+    /** getters e setter */
     public String getCpf() {
         return cpf;
     }
-
+    /** getters e setter */
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
+    /** getters e setter */
     public String getEmail() {
         return email;
     }
-
+    /** getters e setter */
     public void setEmail(String email) {
         this.email = email;
     }
-
+    /** getters e setter */
     public String getNascimento() {
         return nascimento;
     }
-
+    /** getters e setter */
     public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
-
+    /** getters e setter */
     public String getEstado() {
         return estado;
     }
-
+    /** getters e setter */
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
+    /** getters e setter */
     public Cidade getCidade() {
         return cidade;
     }
-
+    /** getters e setter */
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
-
+    /** getters e setter */
     public TipoConta getTipoConta() {
         return tipoConta;
     }
-
+    /** getters e setter */
     public void setTipoConta(TipoConta tipoConta) {
         this.tipoConta = tipoConta;
     }
-
+    /** getters e setter */
     public String getSenha() {
         return senha;
     }
-
+    /** getters e setter */
     public void setSenha(String senha) {
         this.senha = senha;
     }

@@ -4,9 +4,6 @@ import com.banco.bancodopovo.jgi.dao.ContaCorrenteDaoBanco;
 import com.banco.bancodopovo.jgi.dao.ContaPoupancaDaoBanco;
 import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
 import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
-import com.banco.bancodopovo.jgi.entidades.Usuario;
-import com.banco.bancodopovo.jgi.interfaceDao.ContaDao;
-import com.banco.bancodopovo.jgi.modelo.Conta;
 import com.banco.bancodopovo.jgi.validations.Validations;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,11 +12,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-
 import java.io.IOException;
-import java.sql.SQLException;
 
+/**
+ * Classe responsável por ser a classe controladora da interface Transferencia
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class TransferenciaController {
 
     @FXML
@@ -53,11 +51,13 @@ public class TransferenciaController {
 
     @FXML
     private Label contaLabel;
+    /** método responsável por sair da tela de transferência e redirecionar o usuário para o painel. */
     @FXML
     void sair(ActionEvent event) throws IOException{
         Scene scene = WindowController.setSceneInWindow(event,"../telas/painel.fxml");
         PanelController.setUserInfos(scene);
     }
+    /** método responsável por realizar a operação de transferência */
     @FXML
     void transferir(ActionEvent event) throws IOException,RuntimeException {
 

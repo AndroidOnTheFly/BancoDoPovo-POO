@@ -6,17 +6,18 @@ import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
 import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 import com.banco.bancodopovo.jgi.dao.UsuarioDaoBanco;
-import com.banco.bancodopovo.jgi.enumeration.TipoConta;
-import com.banco.bancodopovo.jgi.interfaceDao.ContaDao;
 import com.banco.bancodopovo.jgi.modelo.Conta;
-import javafx.scene.layout.Pane;
-
-import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
 
+/** Classe responsável por fazer uma ponte entre as interações de usuário e a interface, permitindo o acesso e transferência
+ *  de dados entre ambas.
+ *
+ *  @author João Pedro, Iarlyson e Gustavo
+ */
 public class HandleInteractions {
 
+    /** Método responsável por validar um registro de um cliente*/
     public static boolean validateRegister(Usuario usuario){
 
         UsuarioDaoBanco usuarioDaoBanco = new UsuarioDaoBanco();
@@ -27,6 +28,9 @@ public class HandleInteractions {
         return true;
     }
 
+    /** Método responsável por verificar qual conta do usuário deve ser inserida no banco de dados,
+     *  Podendo ser conta corrente, conta poupança ou conta mista.
+     * */
     public static boolean validarTipoConta(Usuario usuario,String agencia,int tipoConta){
 
         boolean inserted = false;
@@ -51,6 +55,7 @@ public class HandleInteractions {
         return inserted;
     }
 
+    /** Método responsável por armazenar e retornar todas as contas utilizadas por um cliente */
     public static Map<String,Conta> pegarContas(Usuario cliente){
 
         Map<String,Conta> contaMap = new HashMap<>();
@@ -64,6 +69,7 @@ public class HandleInteractions {
 
     }
 
+    /**Método responsável retornar o tipo de conta  em runtime */
     public static int tipoDeContaUsuario(Map<String,Conta> contaMap){
 
         ContaCorrente cc = ((ContaCorrente)contaMap.get("corrente"));
@@ -77,14 +83,6 @@ public class HandleInteractions {
 
     }
 
-    public static Conta pegarContaPeloSeuTipo(int t){
-        if(t == 1)
-            return PanelController.contaCorrente;
-        else if(t == 2)
-            return PanelController.contaPoupanca;
-
-        return PanelController.contaCorrente;
-    }
 
 }
 

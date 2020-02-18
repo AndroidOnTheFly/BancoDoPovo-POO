@@ -1,0 +1,9 @@
+com.banco.bancodopovo.jgi.banco
+com.banco.bancodopovo.jgi.controllers
+com.banco.bancodopovo.jgi.dao
+com.banco.bancodopovo.jgi.entidades
+com.banco.bancodopovo.jgi.enumeration
+com.banco.bancodopovo.jgi.interfaceDao
+com.banco.bancodopovo.jgi.modelo
+com.banco.bancodopovo.jgi.validations
+com.banco.bancodopovo.jgi.visao

@@ -4,6 +4,10 @@ import org.postgresql.util.PSQLException;
 
 import java.sql.*;
 
+/* Classe que faz e retorna a conexão com o banco de dados postgresql
+ *
+ * @author João Pedro, Iarlyson Santana e Gustavo
+ */
 public class ConFactory {
 
     private String url;
@@ -11,20 +15,30 @@ public class ConFactory {
     private String senha;
     private Connection connection;
 
+
+    String nomebanco = "postsgres" ;//coloque o nome do banco de dados aqui
+    String portaAcesso = "8975424"; // coloque a porta de acesso aqui
+
+    /** Função construtora que inicia a conexão com o banco de dados pré definido */
     public ConFactory(){
 
-        url = "jdbc:postgresql://localhost:5432/banco_do_povo_poo";
+        /** os dados do postgresql devem ser referenciados aqui */
+
+
+        url = "jdbc:postgresql://localhost:" + portaAcesso + "/" + nomebanco;
         usuario = "postgres";
-        senha = "Luta1234";
+        senha = "8975424";
 
         try{
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url,usuario,senha);
-        }catch(Exception e) {
+        } catch(PSQLException ex){
+            ex.printStackTrace();
+        } catch(Exception e) {
             e.printStackTrace();
         }
     }
-
+    /** Função responsável por executar um comando SQL de alteração de dados*/
     public int executeSQL(String sql, Boolean closeConnection){
         try{
             Statement stm = connection.createStatement() ;
@@ -36,7 +50,7 @@ public class ConFactory {
             return 0;
         }
     }
-
+    /** Função responsável por executar um comando SQL de seleção de dados */
     public ResultSet getQueryResult(String sql,Boolean closeConnection){
         try{
             Statement stm = connection.createStatement();

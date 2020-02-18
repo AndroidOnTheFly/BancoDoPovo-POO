@@ -1,19 +1,20 @@
 package com.banco.bancodopovo.jgi.controllers;
-import com.banco.bancodopovo.jgi.controllers.WindowController;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MenuController {
 
 
+
+    /**
+     * Classe responsável ser o controlador da cena de interface "Menu"
+     * Todos seus componentes e eventos são tratados aqui
+     * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+     */
     private static String viewPath;
     @FXML
     private Button signUpButton;
@@ -26,11 +27,12 @@ public class MenuController {
     @FXML
     private Button contactButton;
 
+    /** Método responsável por redirecionar o usuário para a tela de registro */
     @FXML
     void goToSignUp(ActionEvent event) throws IOException {
         WindowController.setSceneInWindow(event,"../telas/Register.fxml");
     }
-
+    /** Método responsável por redirecionar o usuário para a tela inicial home */
     @FXML
     void goBackToHome(ActionEvent event) throws IOException {
 
@@ -39,11 +41,12 @@ public class MenuController {
         else viewPath = "../telas/Home.fxml";
         WindowController.setSceneInWindow(event,viewPath);
     }
-
+    /** Método responsável por redirecionar o usuário para a tela de login */
     @FXML
     void goToLogin(ActionEvent event) throws IOException {
         WindowController.setSceneInWindow(event,"../telas/login.fxml");
     }
+    /** Método responsável por redirecionar o usuário para a tela sobre */
     @FXML
     void goToAbout(ActionEvent event) throws IOException {
         if(PanelController.currentUser != null)
@@ -51,6 +54,7 @@ public class MenuController {
         else viewPath = "../telas/Sobre.fxml";
         WindowController.setSceneInWindow(event,viewPath);
     }
+    /** Método responsável por redirecionar o usuário para a tela de contato */
     @FXML
     void goToContact(ActionEvent event) throws IOException {
         if(PanelController.currentUser != null){
@@ -60,7 +64,7 @@ public class MenuController {
         }
          WindowController.setSceneInWindow(event,viewPath);
     }
-
+    /** Método responsável por redirecionar o usuário para a tela de painel */
     @FXML
     void goToPainel(ActionEvent event) throws IOException {
         Scene scene = WindowController.setSceneInWindow(event,"../telas/painel.fxml");

@@ -5,6 +5,10 @@ import com.banco.bancodopovo.jgi.modelo.Emprestimo;
 
 import java.util.ArrayList;
 
+/**
+ * Classe que seria responsável por armazenar métodos de acesso de dados relacionados à uma conta corrente
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class EmprestimoBaseDoMilagreDaoBanco implements EmprestimoDao {
 
     @Override
@@ -13,7 +17,7 @@ public class EmprestimoBaseDoMilagreDaoBanco implements EmprestimoDao {
     }
 
     @Override
-    public ArrayList<Emprestimo> getEmprestimo(String tipoEmp) {
+    public Emprestimo getEmprestimo(String tipoEmp) {
         return null;
     }
 

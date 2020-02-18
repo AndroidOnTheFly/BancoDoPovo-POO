@@ -14,9 +14,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Classe que armazena métodos para gerar uma janela de alerta.
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class AlertController {
-
-
 
     @FXML
     private Button alertButton;
@@ -24,11 +26,12 @@ public class AlertController {
     private Label errorMessage;
 
     @FXML
+    /**Método que espera por um evento de clique no alerta, indicando que ele deve ser fechado*/
     void alertClick(ActionEvent event) throws IOException {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.close();
     }
-
+    /**Método que gera a janela de alerta */
     @FXML
     public static void alertMessage(String message,String title) throws IOException {
 
@@ -48,6 +51,7 @@ public class AlertController {
         window.showAndWait();
 
     }
+    /**Método responsável por gerar o segundo tipo de janela de alerta, de tipo delete */
     @FXML
     public static int alertDelete(String message, String title) throws IOException{
 
@@ -90,6 +94,8 @@ public class AlertController {
 
     }
     @FXML
+    /**Método que espera por um evento de clique no alerta do tipo delete, chamado quando um usuário requisita
+     * o deletamento de sua conta*/
     void delete(ActionEvent event) throws IOException {
         PanelController.currentUser = null;
     }

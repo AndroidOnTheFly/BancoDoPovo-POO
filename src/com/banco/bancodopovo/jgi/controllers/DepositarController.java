@@ -12,6 +12,11 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+/**
+ * Classe responsável ser o controlador da cena de interface "Depositar"
+ * Todos seus componentes e eventos são tratados aqui
+ * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo
+ */
 public class DepositarController {
     @FXML
     private Label nameLabel;
