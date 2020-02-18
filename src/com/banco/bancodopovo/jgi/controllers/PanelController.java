@@ -89,7 +89,18 @@ public class PanelController {
     void goToMyAccount(ActionEvent event) throws IOException{
         Scene scene = WindowController.setSceneInWindow(event,"../telas/Perfil.fxml");
         currentScene = "MinhaConta";
-        //setUserInfos(scene);
+    }
+    @FXML
+    void goToDividas(ActionEvent event) throws IOException{
+        Scene scene = WindowController.setSceneInWindow(event,"../telas/Dividas.fxml");
+        currentScene = "Dividas";
+        setUserInfos(scene);
+    }
+    @FXML
+    void goToEmprestimo(ActionEvent event) throws IOException{
+        Scene scene = WindowController.setSceneInWindow(event,"../telas/Emprestimo.fxml");
+        currentScene = "Emprestimo";
+        setUserInfos(scene);
     }
     @FXML
     private static void setPoupancaEnable(Scene scene){
@@ -127,7 +138,10 @@ public class PanelController {
             saldoLabel.setText("Saldo: R$"+PanelController.contaPoupanca.getSaldo());
         }
     }
-
+    @FXML
+    void sair(ActionEvent event) throws IOException{
+        WindowController.setSceneInWindow(event,"../telas/Home.fxml");
+    }
     @FXML
     public static void setUserInfos(Scene scene){
 
