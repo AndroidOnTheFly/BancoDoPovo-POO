@@ -4,7 +4,7 @@ import com.banco.bancodopovo.jgi.enumeration.Cidade;
 import com.banco.bancodopovo.jgi.modelo.Conta;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 
 public class ContaPoupanca implements Conta {
 
@@ -41,7 +41,7 @@ public class ContaPoupanca implements Conta {
 
     //metodo
     @Override
-    public boolean realizarSaque(double quantiaASacar) throws SQLException, ClassNotFoundException, IOException {
+    public boolean realizarSaque(double quantiaASacar) {
         //Tem saldo na conta?
         if ((saldo-quantiaASacar) >=0){
             saldo-= quantiaASacar;
@@ -63,10 +63,10 @@ public class ContaPoupanca implements Conta {
 
 
     @Override
-    public boolean transferir(Conta conta, double valor) throws SQLException, ClassNotFoundException, IOException {
+    public boolean transferir(Conta conta, double valor) {
         if (valor <= saldo) {
             this.realizarSaque(valor);
-            conta.depositar(500);
+            conta.depositar(valor);
             return true;
         }
         return false;

@@ -62,7 +62,7 @@ public class Validations {
 
     public static boolean validarNome(String nome){
         boolean v = nome.matches(".*\\d.*");
-        if(!v && nome.length() > 5){
+        if(!v && nome.length() > 4){
             return true;
         }
         return false;
@@ -94,11 +94,11 @@ public class Validations {
 
     public static Cidade validarCidade(String city){
         Cidade cidade;
-        if(Cidade.Cajazeiras.name() == city)
+        if(Cidade.Cajazeiras.name().equals(city))
             cidade = Cidade.Cajazeiras;
-        else if(Cidade.JocaClaudino.name() == city)
+        else if(Cidade.JocaClaudino.name().equals(city))
             cidade = Cidade.JocaClaudino;
-        else if(Cidade.Uiraúna.name() == city)
+        else if(Cidade.Uiraúna.name().equals(city))
             cidade = Cidade.Uiraúna;
         else
             cidade = null;

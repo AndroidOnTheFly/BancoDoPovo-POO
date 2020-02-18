@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -60,7 +59,7 @@
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="transferirButton" layoutX="134.0" layoutY="365.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="169.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Transferir" textFill="WHITE">
+            <Button fx:id="transferirButton" layoutX="134.0" layoutY="365.0" mnemonicParsing="false" onAction="#transferir" prefHeight="67.0" prefWidth="169.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Transferir" textFill="WHITE">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
@@ -75,15 +74,15 @@
                   <Font name="Cambria Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="227.0" layoutY="269.0" text="Valor da transferência" textFill="WHITE">
+            <Label layoutX="217.0" layoutY="248.0" text="Valor da transferência" textFill="WHITE">
                <font>
                   <Font name="Cambria Bold" size="20.0" />
                </font>
             </Label>
-            <ComboBox fx:id="tipoContaInput" editable="true" layoutX="227.0" layoutY="215.0" prefHeight="27.0" prefWidth="193.0" promptText="Tipo de conta" style="-fx-background-color: white;" />
-            <TextField fx:id="valorTransferenciaInput" layoutX="227.0" layoutY="310.0" prefHeight="27.0" prefWidth="193.0" />
-            <TextField fx:id="agenciaInput" layoutX="227.0" layoutY="136.0" prefHeight="27.0" prefWidth="193.0" promptText="Agência" />
-            <TextField fx:id="contaInput" layoutX="227.0" layoutY="176.0" prefHeight="27.0" prefWidth="193.0" promptText="Conta" />
+            <TextField fx:id="valorTransferenciaInput" layoutX="227.0" layoutY="296.0" prefHeight="27.0" prefWidth="193.0" promptText="R$0.0" />
+            <TextField fx:id="agenciaInput" layoutX="227.0" layoutY="177.0" prefHeight="27.0" prefWidth="193.0" promptText="Agência" text="1165-7" />
+            <TextField fx:id="contaInput" layoutX="227.0" layoutY="211.0" prefHeight="27.0" prefWidth="193.0" promptText="Conta" text="10017103" />
+            <TextField fx:id="cpfInput" layoutX="227.0" layoutY="142.0" prefHeight="27.0" prefWidth="193.0" promptText="CPF" text="03147656039" />
          </children>
       </AnchorPane>
    </children>

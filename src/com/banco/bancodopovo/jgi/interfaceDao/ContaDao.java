@@ -10,4 +10,6 @@ public interface ContaDao {
     Conta getConta(Usuario cliente);
     boolean updateConta(Conta conta, double novoSaldo);
     boolean deleteConta(Conta conta);
+    Conta getContaByCpf(String cpf);
+
 }

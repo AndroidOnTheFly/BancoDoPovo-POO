@@ -66,7 +66,7 @@ public class ContaCorrenteDaoBanco implements ContaDao {
         ContaCorrente c = (ContaCorrente) conta;
         String sql = "update contacorrente set saldo = " + novoSaldo + " where cpf = " + "'"
                 + c.getUsuario().getCpf() + "'";
-        int connectionResult = connection.executeSQL(sql,true);
+        int connectionResult = connection.executeSQL(sql,false);
         if(connectionResult > 0){
             return true;
         }
@@ -76,6 +76,19 @@ public class ContaCorrenteDaoBanco implements ContaDao {
 
     @Override
     public boolean deleteConta(Conta conta) {
+        String sql = "DELETE FROM contacorrente WHERE numconta = '" + ((ContaCorrente)conta).getNumContaCorrent() + "'";
+        int result = connection.executeSQL(sql,true);
+        if(result > 0)
+            return true;
         return false;
+    }
+
+    @Override
+    public Conta getContaByCpf(String cpf) {
+        Usuario transferUser = new UsuarioDaoBanco().getUsuarioBy(cpf,"cpf");
+        if(transferUser == null)
+            return null;
+        ContaCorrente contaDestino = getConta(transferUser);
+        return (contaDestino == null ? null : contaDestino);
     }
 }

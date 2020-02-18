@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -70,18 +69,12 @@
                   <Font name="Cambria Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="221.0" layoutY="135.0" text="Onde deseja depositar" textFill="WHITE">
+            <Label layoutX="204.0" layoutY="175.0" text="Quanto deseja depositar" textFill="WHITE">
                <font>
                   <Font name="Cambria Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="212.0" layoutY="229.0" text="Quanto deseja depositar" textFill="WHITE">
-               <font>
-                  <Font name="Cambria Bold" size="20.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="tipoContaSelect" layoutX="233.0" layoutY="178.0" prefHeight="27.0" prefWidth="193.0" promptText="Tipo de conta" style="-fx-background-color: white;" />
-            <TextField fx:id="valorDepositoInput" layoutX="233.0" layoutY="274.0" prefHeight="27.0" prefWidth="193.0" />
+            <TextField fx:id="valorDepositoInput" layoutX="225.0" layoutY="220.0" prefHeight="27.0" prefWidth="193.0" promptText="R$0.0" />
          </children>
       </AnchorPane>
    </children>

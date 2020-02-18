@@ -53,8 +53,11 @@ public class LoginController {
                 PanelController.setUserInfos(panelScene);
 
             }else{
+                System.out.println("ue");
                 AlertController.alertMessage("Email ou senha incorretos! tente novamente!","Erro ao logar");
             }
+        }else {
+            AlertController.alertMessage("Conta não encontrada no sistema, tente novamente!","Erro ao logar");
         }
     }
 

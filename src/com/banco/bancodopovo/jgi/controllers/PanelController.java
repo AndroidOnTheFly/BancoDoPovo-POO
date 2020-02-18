@@ -5,6 +5,7 @@ import com.banco.bancodopovo.jgi.dao.UsuarioDaoBanco;
 import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
 import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
+import com.banco.bancodopovo.jgi.modelo.Conta;
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -85,6 +86,12 @@ public class PanelController {
         setUserInfos(scene);
     }
     @FXML
+    void goToMyAccount(ActionEvent event) throws IOException{
+        Scene scene = WindowController.setSceneInWindow(event,"../telas/Perfil.fxml");
+        currentScene = "MinhaConta";
+        //setUserInfos(scene);
+    }
+    @FXML
     private static void setPoupancaEnable(Scene scene){
         if(tipoConta == 3 && currentScene == "painel"){
             Button poupancaButton = (Button)scene.lookup("#poupancaButton");
@@ -133,19 +140,22 @@ public class PanelController {
         Button poupancaButton = (Button)scene.lookup("#poupancaButton");
 
         if(tipoContaAtiva == 1) {
-
             agenciaLabel.setText("Agência: " + PanelController.contaCorrente.getAgencia());
             contaLabel.setText("Conta: "+ PanelController.contaCorrente.getNumContaCorrent());
             saldoLabel.setText("Saldo: R$"+PanelController.contaCorrente.getSaldo());
-            poupancaButton.setText("Poupança");
-            poupancaButton.setStyle("-fx-background-color:#74b9ff; -fx-cursor: hand");
+            if(PanelController.currentScene == "painel"){
+                poupancaButton.setText("Poupança");
+                poupancaButton.setStyle("-fx-background-color:#74b9ff; -fx-cursor: hand");
+            }
         }
         else if(tipoContaAtiva == 2) {
             agenciaLabel.setText("Agência: " + PanelController.contaPoupanca.getAgencia());
             contaLabel.setText("Conta: "+ PanelController.contaPoupanca.getNumContaPoupanca());
             saldoLabel.setText("Saldo: R$"+PanelController.contaPoupanca.getSaldo());
-            poupancaButton.setText("Corrente");
-            poupancaButton.setStyle("-fx-background-color:#fdcb6e; -fx-cursor: hand");
+            if(PanelController.currentScene == "painel"){
+                poupancaButton.setText("Corrente");
+                poupancaButton.setStyle("-fx-background-color:#fdcb6e; -fx-cursor: hand");
+            }
         }
 
         setPoupancaEnable(scene);

@@ -3,6 +3,7 @@ package com.banco.bancodopovo.jgi.dao;
 import com.banco.bancodopovo.jgi.banco.ConFactory;
 import com.banco.bancodopovo.jgi.entidades.ContaCorrente;
 import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
+import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 import com.banco.bancodopovo.jgi.interfaceDao.ContaDao;
 import com.banco.bancodopovo.jgi.modelo.Conta;
@@ -21,6 +22,7 @@ public class ContaPoupancaDaoBanco implements ContaDao {
     @Override
     public boolean insertConta(Conta conta) {
         ContaPoupanca c = (ContaPoupanca) conta;
+
         String sql = "insert into contapoupanca (numconta,agencia,saldo,cpf) values (" + "'" + c.getNumContaPoupanca()
                 + "'," + "'" + c.getAgencia() + "'," + "'" + c.getSaldo() + "'," + "'" + c.getUsuario().getCpf() +"')";
         int connectionResult = connection.executeSQL(sql,true);
@@ -63,7 +65,7 @@ public class ContaPoupancaDaoBanco implements ContaDao {
         ContaPoupanca c = (ContaPoupanca) conta;
         String sql = "update contapoupanca set saldo = " + novoSaldo + " where cpf = " + "'"
                 + c.getUsuario().getCpf() + "'";
-        int connectionResult = connection.executeSQL(sql,true);
+        int connectionResult = connection.executeSQL(sql,false);
         if(connectionResult > 0){
             return true;
         }
@@ -72,6 +74,20 @@ public class ContaPoupancaDaoBanco implements ContaDao {
 
     @Override
     public boolean deleteConta(Conta conta) {
+
+        String sql = "DELETE FROM contapoupanca WHERE numconta = '" + ((ContaPoupanca)conta).getNumContaPoupanca() + "'";
+        int result = connection.executeSQL(sql,true);
+        if(result > 0)
+            return true;
         return false;
+    }
+
+    @Override
+    public Conta getContaByCpf(String cpf) {
+        Usuario transferUser = new UsuarioDaoBanco().getUsuarioBy(cpf,"cpf");
+        if(transferUser == null)
+            return null;
+        ContaPoupanca contaDestino = getConta(transferUser);
+        return (contaDestino == null ? null : contaDestino);
     }
 }

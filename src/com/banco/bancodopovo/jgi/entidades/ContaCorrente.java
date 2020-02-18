@@ -59,7 +59,7 @@ public class ContaCorrente implements Conta{
     public boolean realizarSaque(double quantiaASacar)  {
         //Tem saldo na conta?
         if ((saldo-quantiaASacar*juros) >=0){
-            saldo-= quantiaASacar;
+            saldo-= quantiaASacar*juros;
             return true;
         }
         //sem saldo
