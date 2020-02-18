@@ -141,6 +141,9 @@ public class PanelController {
     @FXML
     void sair(ActionEvent event) throws IOException{
         WindowController.setSceneInWindow(event,"../telas/Home.fxml");
+        PanelController.currentUser = null;
+        PanelController.contaCorrente = null;
+        PanelController.contaPoupanca = null;
     }
     @FXML
     public static void setUserInfos(Scene scene){

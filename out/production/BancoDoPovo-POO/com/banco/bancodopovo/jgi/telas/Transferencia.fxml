@@ -2,10 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<<<<<<< HEAD
-<?import javafx.scene.control.ComboBox?>
-=======
->>>>>>> 03d850e015f8103328d2384f40e1b1bfa7f4d53c
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,16 +9,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="800.0" style="-fx-background-color: #34495e;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane layoutX="77.0" layoutY="113.0" prefHeight="457.0" prefWidth="647.0" style="-fx-background-color: #2c3e50; -fx-background-radius: 32;">
-=======
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="800.0" style="-fx-background-color: #34495e;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banco.bancodopovo.jgi.controllers.TransferenciaController">
    <children>
       <fx:include fx:id="menu" source="Loggedmenu.fxml" />
       <AnchorPane layoutX="78.0" layoutY="103.0" prefHeight="439.0" prefWidth="640.0" style="-fx-background-color: #2c3e50; -fx-background-radius: 32;">
->>>>>>> 03d850e015f8103328d2384f40e1b1bfa7f4d53c
          <children>
             <VBox layoutX="36.0" layoutY="19.0" prefHeight="99.0" prefWidth="182.0" style="-fx-background-color: #34495e; -fx-background-radius: 18;">
                <children>
@@ -64,20 +54,12 @@
                   </Label>
                </children>
             </HBox>
-<<<<<<< HEAD
-            <Button fx:id="cancelButton" layoutX="352.0" layoutY="365.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="169.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Cancelar" textFill="WHITE">
-=======
             <Button fx:id="cancelButton" layoutX="352.0" layoutY="365.0" mnemonicParsing="false" onAction="#sair" prefHeight="67.0" prefWidth="169.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Cancelar" textFill="WHITE">
->>>>>>> 03d850e015f8103328d2384f40e1b1bfa7f4d53c
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
             </Button>
-<<<<<<< HEAD
-            <Button fx:id="transferirButton" layoutX="134.0" layoutY="365.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="169.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Transferir" textFill="WHITE">
-=======
             <Button fx:id="transferirButton" layoutX="134.0" layoutY="365.0" mnemonicParsing="false" onAction="#transferir" prefHeight="67.0" prefWidth="169.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Transferir" textFill="WHITE">
->>>>>>> 03d850e015f8103328d2384f40e1b1bfa7f4d53c
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>
@@ -92,26 +74,15 @@
                   <Font name="Cambria Bold" size="20.0" />
                </font>
             </Label>
-<<<<<<< HEAD
-            <Label layoutX="227.0" layoutY="269.0" text="Valor da transferência" textFill="WHITE">
-=======
             <Label layoutX="217.0" layoutY="248.0" text="Valor da transferência" textFill="WHITE">
->>>>>>> 03d850e015f8103328d2384f40e1b1bfa7f4d53c
                <font>
                   <Font name="Cambria Bold" size="20.0" />
                </font>
             </Label>
-<<<<<<< HEAD
-            <ComboBox fx:id="tipoContaSelect" editable="true" layoutX="227.0" layoutY="215.0" prefHeight="27.0" prefWidth="193.0" promptText="Tipo de conta" style="-fx-background-color: white;" />
-            <TextField fx:id="valorTransferenciaInput" layoutX="227.0" layoutY="310.0" prefHeight="27.0" prefWidth="193.0" />
-            <TextField fx:id="agenciaInput" layoutX="227.0" layoutY="136.0" prefHeight="27.0" prefWidth="193.0" promptText="Agência" />
-            <TextField fx:id="contaInput" layoutX="227.0" layoutY="176.0" prefHeight="27.0" prefWidth="193.0" promptText="Conta" />
-=======
             <TextField fx:id="valorTransferenciaInput" layoutX="227.0" layoutY="296.0" prefHeight="27.0" prefWidth="193.0" promptText="R$0.0" />
             <TextField fx:id="agenciaInput" layoutX="227.0" layoutY="177.0" prefHeight="27.0" prefWidth="193.0" promptText="Agência" text="1165-7" />
             <TextField fx:id="contaInput" layoutX="227.0" layoutY="211.0" prefHeight="27.0" prefWidth="193.0" promptText="Conta" text="10017103" />
             <TextField fx:id="cpfInput" layoutX="227.0" layoutY="142.0" prefHeight="27.0" prefWidth="193.0" promptText="CPF" text="03147656039" />
->>>>>>> 03d850e015f8103328d2384f40e1b1bfa7f4d53c
          </children>
       </AnchorPane>
    </children>
