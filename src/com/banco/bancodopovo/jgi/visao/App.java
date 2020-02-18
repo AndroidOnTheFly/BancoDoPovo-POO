@@ -30,9 +30,9 @@ public class App extends Application{
         System.out.println(contaCorrente.getSaldo());
         emprestimoSalvarAperto.pagarPartedeEmprestimo(500, contaCorrente);
         System.out.println(contaCorrente.getSaldo());
-        contaCorrente.depositar(500);
+        contaCorrente.depositar(500); kkkk so fiz essa parte, tem q implementa o resto
         emprestimoSalvarAperto.pagarTotalDeEmprestimo(contaCorrente);
-        System.out.println(contaPoupanca);
+        System.out.println(contaPoupanca); tu precisa reabrir a ide, ja aconteceu isso cmg
     */
 
     }
