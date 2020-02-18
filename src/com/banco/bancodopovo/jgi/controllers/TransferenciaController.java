@@ -77,63 +77,79 @@ public class TransferenciaController {
             if(!isCpf) {
                 AlertController.alertMessage("CPF incorreto, tente novamente.","Erro em CPF");
             }else{
+                boolean podeTransferir = true;
 
-                ContaCorrente destinoCorrente = (ContaCorrente) new ContaCorrenteDaoBanco().getContaByCpf(cpf);
-                ContaPoupanca destinoPoupanca = (ContaPoupanca) new ContaPoupancaDaoBanco().getContaByCpf(cpf);
-
-                if(agenciadestino.equals(destinoCorrente.getAgencia()) && contadestino.equals(destinoCorrente.getNumContaCorrent())){
-
-                    sucesso = true;
-
-                    ContaCorrenteDaoBanco contaCorrenteDao = new ContaCorrenteDaoBanco();
-
-                    boolean transferido = false;
-                    if(tipoContaAtiva == 1){
-                        PanelController.contaCorrente.transferir(destinoCorrente,valor);
-                        transferido = contaCorrenteDao.updateConta(PanelController.contaCorrente,PanelController.contaCorrente.getSaldo());
-                    }else if(tipoContaAtiva == 2){
-                        ContaPoupancaDaoBanco contaPoupancaDao = new ContaPoupancaDaoBanco();
-                        PanelController.contaPoupanca.transferir(destinoCorrente,valor);
-                        transferido = contaPoupancaDao.updateConta(PanelController.contaPoupanca,PanelController.contaPoupanca.getSaldo());
+                if(PanelController.tipoContaAtiva == 1){
+                    if(PanelController.contaCorrente.getSaldo() < valor){
+                        podeTransferir = false;
+                        AlertController.alertMessage("saldo insuficiente","erro ao transferir");
                     }
-                    boolean recebido = contaCorrenteDao.updateConta(destinoCorrente,destinoCorrente.getSaldo());
-
-                    if(transferido && recebido){
-                        AlertController.alertMessage("Transferencia feita com exito!","Sucesso");
-                    }else{
-                        AlertController.alertMessage("Ocorreu um erro ao tentar transferir! tente novamente.","Erro");
+                }else if(PanelController.tipoContaAtiva == 2){
+                    if(PanelController.contaPoupanca.getSaldo() < valor){
+                        podeTransferir = false;
+                        AlertController.alertMessage("saldo insuficiente","erro ao transferir");
                     }
+                }
 
-                }else if(agenciadestino.equals(destinoPoupanca.getAgencia()) && contadestino.equals(destinoPoupanca.getNumContaPoupanca())){
+                if(podeTransferir){
+                    ContaCorrente destinoCorrente = (ContaCorrente) new ContaCorrenteDaoBanco().getContaByCpf(cpf);
+                    ContaPoupanca destinoPoupanca = (ContaPoupanca) new ContaPoupancaDaoBanco().getContaByCpf(cpf);
 
-                    sucesso = true;
-                    ContaPoupancaDaoBanco contaPoupancaDao = new ContaPoupancaDaoBanco();
-                    boolean transferido = false;
+                    if(agenciadestino.equals(destinoCorrente.getAgencia()) && contadestino.equals(destinoCorrente.getNumContaCorrent())){
 
-                    if(tipoContaAtiva == 1){
+                        sucesso = true;
+
                         ContaCorrenteDaoBanco contaCorrenteDao = new ContaCorrenteDaoBanco();
-                        PanelController.contaCorrente.transferir(destinoPoupanca,valor);
-                        transferido = contaCorrenteDao.updateConta(PanelController.contaCorrente,PanelController.contaCorrente.getSaldo());
 
-                    }else if(tipoContaAtiva == 2){
-                        PanelController.contaPoupanca.transferir(destinoPoupanca,valor);
-                        transferido = contaPoupancaDao.updateConta(PanelController.contaPoupanca,PanelController.contaPoupanca.getSaldo());
+                        boolean transferido = false;
+                        if(tipoContaAtiva == 1){
+                            PanelController.contaCorrente.transferir(destinoCorrente,valor);
+                            transferido = contaCorrenteDao.updateConta(PanelController.contaCorrente,PanelController.contaCorrente.getSaldo());
+                        }else if(tipoContaAtiva == 2){
+                            ContaPoupancaDaoBanco contaPoupancaDao = new ContaPoupancaDaoBanco();
+                            PanelController.contaPoupanca.transferir(destinoCorrente,valor);
+                            transferido = contaPoupancaDao.updateConta(PanelController.contaPoupanca,PanelController.contaPoupanca.getSaldo());
+                        }
+                        boolean recebido = contaCorrenteDao.updateConta(destinoCorrente,destinoCorrente.getSaldo());
+
+                        if(transferido && recebido){
+                            AlertController.alertMessage("Transferencia feita com exito!","Sucesso");
+                        }else{
+                            AlertController.alertMessage("Ocorreu um erro ao tentar transferir! tente novamente.","Erro");
+                        }
+
+                    }else if(agenciadestino.equals(destinoPoupanca.getAgencia()) && contadestino.equals(destinoPoupanca.getNumContaPoupanca())){
+
+                        sucesso = true;
+                        ContaPoupancaDaoBanco contaPoupancaDao = new ContaPoupancaDaoBanco();
+                        boolean transferido = false;
+
+                        if(tipoContaAtiva == 1){
+                            ContaCorrenteDaoBanco contaCorrenteDao = new ContaCorrenteDaoBanco();
+                            PanelController.contaCorrente.transferir(destinoPoupanca,valor);
+                            transferido = contaCorrenteDao.updateConta(PanelController.contaCorrente,PanelController.contaCorrente.getSaldo());
+
+                        }else if(tipoContaAtiva == 2){
+                            PanelController.contaPoupanca.transferir(destinoPoupanca,valor);
+                            transferido = contaPoupancaDao.updateConta(PanelController.contaPoupanca,PanelController.contaPoupanca.getSaldo());
+                        }
+                        boolean recebido = contaPoupancaDao.updateConta(destinoPoupanca,destinoPoupanca.getSaldo());
+
+                        if(transferido && recebido){
+                            AlertController.alertMessage("Transferencia feita com exito!","Sucesso");
+                        }else{
+                            AlertController.alertMessage("Ocorreu um erro ao tentar transferir! tente novamente.","Erro");
+                        }
                     }
-                    boolean recebido = contaPoupancaDao.updateConta(destinoPoupanca,destinoPoupanca.getSaldo());
-
-                    if(transferido && recebido){
-                        AlertController.alertMessage("Transferencia feita com exito!","Sucesso");
-                    }else{
-                        AlertController.alertMessage("Ocorreu um erro ao tentar transferir! tente novamente.","Erro");
+                    else{
+                        AlertController.alertMessage("Agência ou conta de destino incorretos!","Erro ao transferir");
                     }
-                }
-                else{
-                    AlertController.alertMessage("Agência ou conta de destino incorretos!","Erro ao transferir");
-                }
 
-                if(sucesso){
-                    if(PanelController.tipoContaAtiva == 1) saldoLabel.setText("Saldo: R$"+PanelController.contaCorrente.getSaldo());
-                    else saldoLabel.setText("Saldo: R$" + PanelController.contaPoupanca.getSaldo());
+                    if(sucesso){
+                        if(PanelController.tipoContaAtiva == 1) saldoLabel.setText("Saldo: R$"+PanelController.contaCorrente.getSaldo());
+                        else saldoLabel.setText("Saldo: R$" + PanelController.contaPoupanca.getSaldo());
+                    }
+
                 }
 
 

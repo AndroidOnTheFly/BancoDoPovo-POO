@@ -20,7 +20,7 @@
             <Image url="@images/add.png" />
          </image>
       </ImageView>
-      <TextField fx:id="nameInput" layoutX="99.0" layoutY="198.0" prefHeight="36.0" prefWidth="251.0" promptText="Nome completo" style="-fx-background-color: #a9a9a9 , white , white;; -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;;" text="João Pedro">
+      <TextField fx:id="nameInput" layoutX="99.0" layoutY="198.0" prefHeight="36.0" prefWidth="251.0" promptText="Nome completo" style="-fx-background-color: #a9a9a9 , white , white;; -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;;" >
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
@@ -35,7 +35,7 @@
             <Image url="@images/arrow.png" />
          </image>
       </ImageView>
-      <TextField fx:id="cpfInput" layoutX="398.0" layoutY="253.0" prefHeight="36.0" prefWidth="251.0" promptText="CPF" text="83851362071">
+      <TextField fx:id="cpfInput" layoutX="398.0" layoutY="253.0" prefHeight="36.0" prefWidth="251.0" promptText="CPF">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
@@ -45,12 +45,12 @@
             <Font name="Cambria Bold" size="26.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passInput" layoutX="99.0" layoutY="314.0" prefHeight="36.0" prefWidth="251.0" promptText="Senha" text="8975424">
+      <PasswordField fx:id="passInput" layoutX="99.0" layoutY="314.0" prefHeight="36.0" prefWidth="251.0" promptText="Senha">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="emailInput" layoutX="99.0" layoutY="253.0" prefHeight="36.0" prefWidth="251.0" promptText="Email" style="-fx-background-color: #a9a9a9 , white , white;; -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;;" text="joão@hotmail.com">
+      <TextField fx:id="emailInput" layoutX="99.0" layoutY="253.0" prefHeight="36.0" prefWidth="251.0" promptText="Email" style="-fx-background-color: #a9a9a9 , white , white;; -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;;">
          <font>
             <Font name="Cambria" size="16.0" />
          </font>
@@ -60,7 +60,7 @@
             <Font name="Cambria" size="16.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="confirmPassInput" layoutX="99.0" layoutY="373.0" prefHeight="36.0" prefWidth="251.0" promptText="Confirme sua senha" text="8975424">
+      <PasswordField fx:id="confirmPassInput" layoutX="99.0" layoutY="373.0" prefHeight="36.0" prefWidth="251.0" promptText="Confirme sua senha" >
          <font>
             <Font name="Cambria" size="16.0" />
          </font>

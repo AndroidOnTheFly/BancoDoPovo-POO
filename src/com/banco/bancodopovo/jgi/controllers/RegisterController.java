@@ -68,8 +68,15 @@ public class RegisterController {
         int passValidation = Validations.validarSenha(pass,confirmPass);
         boolean cpfValidation =  Validations.isCPF(cpf);
         String dateValidation = Validations.validarDate(date);
-        Cidade cidade = Validations.validarCidade(city);
-        String agencia = cidade.getAgencia();
+        Cidade cidade =Validations.validarCidade(city);
+        String agencia;
+
+        try{
+           agencia = cidade.getAgencia();
+        }catch(NullPointerException e){
+            AlertController.alertMessage("Voce deve selecionar uma cidade","erro");
+           throw e;
+        }
         TipoConta tipo = Validations.validarTipoConta(cc,cp);
 
 

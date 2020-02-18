@@ -88,7 +88,13 @@ public class Validations {
         if(date == null){
             return null;
         }else{
-            return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            String data = date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            String[] dateArray = data.split("-",3);
+            int year = Integer.parseInt(dateArray[0]);
+            if(year >= 2005) {
+                return null;
+            }
+            return data;
         }
     }
 

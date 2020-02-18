@@ -80,9 +80,9 @@
                </font>
             </Label>
             <TextField fx:id="valorTransferenciaInput" layoutX="227.0" layoutY="296.0" prefHeight="27.0" prefWidth="193.0" promptText="R$0.0" />
-            <TextField fx:id="agenciaInput" layoutX="227.0" layoutY="177.0" prefHeight="27.0" prefWidth="193.0" promptText="Agência" text="1165-7" />
-            <TextField fx:id="contaInput" layoutX="227.0" layoutY="211.0" prefHeight="27.0" prefWidth="193.0" promptText="Conta" text="10017103" />
-            <TextField fx:id="cpfInput" layoutX="227.0" layoutY="142.0" prefHeight="27.0" prefWidth="193.0" promptText="CPF" text="03147656039" />
+            <TextField fx:id="agenciaInput" layoutX="227.0" layoutY="177.0" prefHeight="27.0" prefWidth="193.0" promptText="Agência"/>
+            <TextField fx:id="contaInput" layoutX="227.0" layoutY="211.0" prefHeight="27.0" prefWidth="193.0" promptText="Conta"  />
+            <TextField fx:id="cpfInput" layoutX="227.0" layoutY="142.0" prefHeight="27.0" prefWidth="193.0" promptText="CPF" />
          </children>
       </AnchorPane>
    </children>

@@ -20,7 +20,7 @@
                   <Font name="Cambria Bold" size="22.0" />
                </font>
             </Text>
-            <TextField fx:id="emailInput" layoutX="68.0" layoutY="143.0" prefHeight="41.0" prefWidth="228.0" promptText="Digite seu email" text="aldaberto@hotmail.com">
+            <TextField fx:id="emailInput" layoutX="68.0" layoutY="143.0" prefHeight="41.0" prefWidth="228.0" promptText="Digite seu email">
                <font>
                   <Font size="15.0" />
                </font>
@@ -40,7 +40,7 @@
                   <Image url="@images/conecte-se.png" />
                </image>
             </ImageView>
-            <PasswordField fx:id="passInput" layoutX="67.0" layoutY="203.0" prefHeight="41.0" prefWidth="228.0" promptText="Digite sua senha" text="8975424">
+            <PasswordField fx:id="passInput" layoutX="67.0" layoutY="203.0" prefHeight="41.0" prefWidth="228.0" promptText="Digite sua senha" >
                <font>
                   <Font name="Cambria" size="16.0" />
                </font>
