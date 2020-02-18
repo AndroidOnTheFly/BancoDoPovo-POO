@@ -4,7 +4,7 @@ import com.banco.bancodopovo.jgi.enumeration.Cidade;
 import com.banco.bancodopovo.jgi.modelo.Conta;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 
 public class ContaPoupanca implements Conta {
 
@@ -19,15 +19,19 @@ public class ContaPoupanca implements Conta {
         this.usuario = usuario;
         this.agencia = agencia;
         ID++;
-        setNumConta();
         this.saldo = 0;
     }
 
-
-    private void setNumConta(){
+    public void setNumConta(){
         int random = (int) (Math.random() * 100);
         numContaPoupanca = ID + "" + random + usuario.getCpf().substring(0,2);
         System.out.println(numContaPoupanca);
+    }
+    public void setConta(String num){
+            numContaPoupanca = num;
+    }
+    public void setSaldo(double s){
+        saldo = s;
     }
 
     @Override
@@ -37,7 +41,7 @@ public class ContaPoupanca implements Conta {
 
     //metodo
     @Override
-    public boolean realizarSaque(double quantiaASacar) throws SQLException, ClassNotFoundException, IOException {
+    public boolean realizarSaque(double quantiaASacar) {
         //Tem saldo na conta?
         if ((saldo-quantiaASacar) >=0){
             saldo-= quantiaASacar;
@@ -47,7 +51,10 @@ public class ContaPoupanca implements Conta {
         return false;
     }
 
-
+    public String getAgencia() { return agencia; };
+    public String getNumContaPoupanca(){ return numContaPoupanca; }
+    public Usuario getUsuario() { return usuario; };
+    public double getSaldo() { return saldo; }
     @Override
     public void consultarSaldo() {
         System.out.println("Saldo Atual da conta = " + saldo);
@@ -56,10 +63,10 @@ public class ContaPoupanca implements Conta {
 
 
     @Override
-    public boolean transferir(Conta conta, double valor) throws SQLException, ClassNotFoundException, IOException {
+    public boolean transferir(Conta conta, double valor) {
         if (valor <= saldo) {
             this.realizarSaque(valor);
-            conta.depositar(500);
+            conta.depositar(valor);
             return true;
         }
         return false;

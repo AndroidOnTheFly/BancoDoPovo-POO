@@ -1,11 +1,14 @@
 package com.banco.bancodopovo.jgi.dao;
 
 import com.banco.bancodopovo.jgi.banco.ConFactory;
+import com.banco.bancodopovo.jgi.entidades.ContaPoupanca;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 import com.banco.bancodopovo.jgi.interfaceDao.UsuarioDao;
 import com.banco.bancodopovo.jgi.validations.Validations;
 
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UsuarioDaoBanco implements UsuarioDao {
 
@@ -36,11 +39,24 @@ public class UsuarioDaoBanco implements UsuarioDao {
 
     @Override
     public boolean updateUsuario(Usuario usuario) {
+
+        String sql = "update cliente set nome = '" + usuario.getNome() + "'," + "email = '" + usuario.getEmail()
+                +"',cidade = '"+ usuario.getCidade().name() + "',senha = '" + usuario.getSenha() + "'" + " where cpf = '" +
+                usuario.getCpf() + "'";
+
+        int connectionResult = connection.executeSQL(sql,false);
+        if(connectionResult > 0){
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean deleteUsuario(Usuario usuario) {
+        String sql = "DELETE FROM cliente WHERE cpf = '" + usuario.getCpf() + "'";
+        int result = connection.executeSQL(sql,true);
+        if(result > 0)
+            return true;
         return false;
     }
 
@@ -50,7 +66,7 @@ public class UsuarioDaoBanco implements UsuarioDao {
         ResultSet result = connection.getQueryResult("SELECT * from cliente WHERE " + bySearch + "= '" + data + "'",false);
 
         int countRow = 0;
-        String cpf = "", nome = "",email = "",cidade = "",estado = "",nascimento = "",tipoconta = "",senha = "", cc = "", cp = "";
+        String cpf = "", nome = "", email = "", cidade = "", estado = "",nascimento = "", tipoconta = "",senha = "",cc = "", cp = "";
 
         try{
             while(result.next()){
@@ -60,24 +76,27 @@ public class UsuarioDaoBanco implements UsuarioDao {
                 cpf = result.getString("cpf");
                 nome = result.getString("nome");
                 email = result.getString("email");
-                cidade = result.getString("cidade");
+                cidade =result.getString("cidade");
                 estado = result.getString("estado");
                 nascimento = result.getString("nascimento");
                 tipoconta = result.getString("tipoconta");
                 senha = result.getString("senha");
+
             }
         }catch(Exception e){
             e.printStackTrace();
         }
 
         if(countRow == 1){
-            if(tipoconta == "mista"){
+            if(tipoconta.equals("mista")){
                 cc = "corrente";
                 cp = "poupança";
             }
-            return (new Usuario(nome,cpf,email,nascimento,estado,Validations.validarCidade(cidade),
-                    Validations.validarTipoConta(cc,cp),senha));
+            return (new Usuario(nome,cpf,
+                    email,nascimento,estado,Validations.validarCidade(cidade), Validations.validarTipoConta(cc,cp),senha));
         }
         return null;
     }
+
+
 }

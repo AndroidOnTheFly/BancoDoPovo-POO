@@ -1,5 +1,7 @@
 package com.banco.bancodopovo.jgi.banco;
 
+import org.postgresql.util.PSQLException;
+
 import java.sql.*;
 
 public class ConFactory {
@@ -9,10 +11,11 @@ public class ConFactory {
     private String senha;
     private Connection connection;
 
-    public ConFactory() {
-        url = "jdbc:postgresql://localhost:5432/banco_do_povo_poo";
+    public ConFactory(){
+
+        url = "jdbc:postgresql://localhost:5432/POO";
         usuario = "postgres";
-        senha = "Luta1234";
+        senha = "8975424";
 
         try{
             Class.forName("org.postgresql.Driver");

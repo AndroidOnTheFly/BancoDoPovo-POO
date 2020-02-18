@@ -8,46 +8,46 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="painelScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="800.0" style="-fx-background-color: #DDDDDD;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="painelScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="800.0" style="-fx-background-color: #DDDDDD;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banco.bancodopovo.jgi.controllers.PanelController">
     <children>
         <AnchorPane layoutY="99.0" prefHeight="459.0" prefWidth="712.0" style="-fx-background-color: #2c3e50;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="99.0">
             <children>
-                <Button fx:id="transfButton" layoutX="134.0" layoutY="179.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Transferência" textFill="WHITE">
+                <Button fx:id="transfButton" layoutX="134.0" layoutY="179.0" mnemonicParsing="false" onAction="#transferView" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Transferência" textFill="WHITE">
                     <font>
                         <Font name="Cambria" size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="sacarButton" layoutX="134.0" layoutY="262.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Sacar" textFill="WHITE">
+                <Button fx:id="sacarButton" layoutX="134.0" layoutY="262.0" mnemonicParsing="false" onAction="#sacarView" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Sacar" textFill="WHITE">
                     <font>
                         <Font name="Cambria" size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="depositarButton" layoutX="328.0" layoutY="349.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Depositar" textFill="WHITE">
+                <Button fx:id="depositarButton" layoutX="328.0" layoutY="349.0" mnemonicParsing="false" onAction="#depositarView" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Depositar" textFill="WHITE">
                     <font>
                         <Font name="Cambria" size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="poupancaButton" layoutX="134.0" layoutY="349.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Poupança" textFill="WHITE">
+                <Button fx:id="poupancaButton" disable="true" layoutX="134.0" layoutY="349.0" mnemonicParsing="false" onAction="#mudarTipoContaAtiva" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #74b9ff; -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Poupança" textFill="WHITE">
                     <font>
                         <Font name="Cambria" size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="emprestimoButton" layoutX="328.0" layoutY="179.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Emprestimo" textFill="WHITE">
+                <Button fx:id="emprestimoButton" layoutX="328.0" layoutY="179.0" mnemonicParsing="false" onAction="#goToEmprestimo" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Emprestimo" textFill="WHITE">
                     <font>
                         <Font name="Cambria" size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="dividasButton" layoutX="522.0" layoutY="179.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Dívidas" textFill="WHITE">
+                <Button fx:id="dividasButton" layoutX="522.0" layoutY="179.0" mnemonicParsing="false" onAction="#goToDividas" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Dívidas" textFill="WHITE">
                     <font>
                         <Font name="Cambria" size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="myAccountButton" layoutX="328.0" layoutY="262.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Minha Conta" textFill="WHITE">
+                <Button fx:id="myAccountButton" layoutX="328.0" layoutY="262.0" mnemonicParsing="false" onAction="#goToMyAccount" prefHeight="56.0" prefWidth="158.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Minha Conta" textFill="WHITE">
                     <font>
                         <Font name="Cambria" size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="sairButton" layoutX="522.0" layoutY="262.0" mnemonicParsing="false" prefHeight="144.0" prefWidth="158.0" style="-fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),        #9d4024,        #d86e3a,        radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );    -fx-font-weight: bold;    -fx-font-size: 1.1em;; -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Sair" textFill="WHITE">
+                <Button fx:id="sairButton" layoutX="522.0" layoutY="262.0" mnemonicParsing="false" onAction="#sair" prefHeight="144.0" prefWidth="158.0" style="-fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),        #9d4024,        #d86e3a,        radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );    -fx-font-weight: bold;    -fx-font-size: 1.1em;; -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Sair" textFill="WHITE">
                     <font>
                         <Font name="Cambria" size="27.0" />
                     </font>
@@ -100,5 +100,6 @@
             </children>
         </AnchorPane>
         <fx:include fx:id="menu" source="Loggedmenu.fxml" />
+      <HBox prefHeight="100.0" prefWidth="200.0" />
     </children>
 </AnchorPane>

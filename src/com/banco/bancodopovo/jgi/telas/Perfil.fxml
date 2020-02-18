@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="800.0" style="-fx-background-color: #34495e;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banco.bancodopovo.jgi.controllers.PerfilController">
+   <children>
+      <fx:include fx:id="menu" source="Loggedmenu.fxml" />
+      <AnchorPane layoutX="27.0" layoutY="102.0" prefHeight="436.0" prefWidth="747.0" style="-fx-background-color: #2c3e50; -fx-background-radius: 32;">
+         <children>
+            <Label layoutX="307.0" layoutY="-3.0" text="Meu Perfil" textFill="#221616">
+               <font>
+                  <Font name="Cambria Bold" size="28.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nomeInput" layoutX="34.0" layoutY="85.0" prefHeight="37.0" prefWidth="196.0" promptText="Nome">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="cpfInput" disable="true" layoutX="34.0" layoutY="139.0" prefHeight="37.0" prefWidth="196.0" promptText="CPF:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="emailInput" layoutX="34.0" layoutY="188.0" prefHeight="37.0" prefWidth="196.0" promptText="Email">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="senhaInput" layoutX="34.0" layoutY="241.0" prefHeight="37.0" prefWidth="196.0" promptText="Senha nova">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="confirmarSenhaInput" layoutX="34.0" layoutY="297.0" prefHeight="37.0" prefWidth="196.0" promptText="Confirmar senha">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="519.0" layoutY="43.0" text="Mudar de agência" textFill="#221616">
+               <font>
+                  <Font name="Cambria Bold" size="19.0" />
+               </font>
+            </Label>
+            <TextField disable="true" layoutX="509.0" layoutY="85.0" prefHeight="37.0" prefWidth="196.0" promptText="Estado: Paraíba">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="535.0" layoutY="195.0" text="Dados bancários" textFill="#221616">
+               <font>
+                  <Font name="Cambria Bold" size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="agenciaInput" disable="true" layoutX="510.0" layoutY="241.0" prefHeight="37.0" prefWidth="196.0" promptText="Agência:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="77.0" fitWidth="87.0" layoutX="335.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/usuario-do-homem.png" />
+               </image>
+            </ImageView>
+            <ComboBox fx:id="cidadeInput" layoutX="509.0" layoutY="139.0" onAction="#mudarAgencia" prefHeight="37.0" prefWidth="196.0" promptText="Cidade" style="-fx-background-color: white;" />
+            <Button fx:id="deletarContaButton" layoutX="87.0" layoutY="369.0" mnemonicParsing="false" onAction="#deletarConta" prefHeight="49.0" prefWidth="173.0" style="-fx-background-color: #d63031; -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Deletar Conta" textFill="WHITE">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="salvarAlteracoesButton" layoutX="287.0" layoutY="369.0" mnemonicParsing="false" onAction="#salvarAlteracoes" prefHeight="49.0" prefWidth="179.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Salvar alterações" textFill="WHITE">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="cancelButton" layoutX="492.0" layoutY="369.0" mnemonicParsing="false" onAction="#sair" prefHeight="49.0" prefWidth="173.0" style="-fx-background-color: #74b9ff; -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="81.0" layoutY="43.0" text="Meus dados" textFill="#221616">
+               <font>
+                  <Font name="Cambria Bold" size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="contaInput" disable="true" layoutX="510.0" layoutY="297.0" prefHeight="37.0" prefWidth="196.0" promptText="Conta:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

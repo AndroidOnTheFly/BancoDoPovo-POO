@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="800.0" style="-fx-background-color: #34495e;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <fx:include fx:id="menu" source="Loggedmenu.fxml" />
+      <AnchorPane layoutX="85.0" layoutY="118.0" prefHeight="418.0" prefWidth="613.0" style="-fx-background-radius: 24; -fx-background-color: #2c3e50;">
+         <children>
+            <HBox layoutX="382.0" layoutY="46.0" prefHeight="38.0" prefWidth="217.0" style="-fx-background-color: #34495e; -fx-background-radius: 14;">
+               <children>
+                  <Label fx:id="saldoLabel" text="Saldo:" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="40.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox layoutX="14.0" layoutY="16.0" prefHeight="99.0" prefWidth="182.0" style="-fx-background-color: #34495e; -fx-background-radius: 18;">
+               <children>
+                  <Label fx:id="nameLabel" text="Nome_Here" textFill="#c33636">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="agenciaLabel" text="Agência:" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="contaLabel" text="Conta:" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <TableView fx:id="tableEmp" layoutX="14.0" layoutY="147.0" prefHeight="170.0" prefWidth="585.0" style="-fx-background-color: #2d3436;">
+               <columns>
+                  <TableColumn id="dividasTable" fx:id="nomeEmp" prefWidth="300.0" text="Nome" />
+                  <TableColumn fx:id="valorEmp" minWidth="15.0" prefWidth="300.0" text="Valor" />
+               </columns>
+            </TableView>
+            <Button fx:id="cancelButton" layoutX="217.0" layoutY="337.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="194.0" style="-fx-background-color: #fdcb6e; -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); -fx-cursor: hand;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="244.0" layoutY="16.0" text="Empréstimo" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
