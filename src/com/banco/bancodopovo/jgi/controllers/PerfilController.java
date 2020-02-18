@@ -58,7 +58,10 @@ public class PerfilController {
     void cancelar(ActionEvent event) {
 
     }
-
+    @FXML
+    void sair(ActionEvent event) throws IOException{
+        WindowController.setSceneInWindow(event,"../telas/painel.fxml");
+    }
     @FXML
     void deletarConta(ActionEvent event) throws IOException {
         int deletUser = AlertController.alertDelete("Tem certeza que quer deletar sua conta?","Deletar conta");
@@ -103,6 +106,7 @@ public class PerfilController {
             PanelController.currentUser.setEmail(novoEmail);
             PanelController.currentUser.setSenha(novaSenha);
             PanelController.currentUser.setCidade(Validations.validarCidade(cidadeNova));
+
             boolean updated = (new UsuarioDaoBanco().updateUsuario(PanelController.currentUser));
 
             if(updated){

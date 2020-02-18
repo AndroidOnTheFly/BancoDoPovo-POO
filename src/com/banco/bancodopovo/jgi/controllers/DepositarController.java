@@ -4,6 +4,7 @@ import com.banco.bancodopovo.jgi.dao.ContaCorrenteDaoBanco;
 import com.banco.bancodopovo.jgi.dao.ContaPoupancaDaoBanco;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -35,7 +36,11 @@ public class DepositarController {
 
     @FXML
     private TextField valorDepositoInput;
-
+    @FXML
+    void sair(ActionEvent event) throws IOException{
+        Scene scene = WindowController.setSceneInWindow(event,"../telas/painel.fxml");
+        PanelController.setUserInfos(scene);
+    }
     @FXML
     void depositar(ActionEvent event) throws IOException,RuntimeException {
 

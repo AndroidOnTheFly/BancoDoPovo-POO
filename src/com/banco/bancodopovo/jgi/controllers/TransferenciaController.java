@@ -10,10 +10,12 @@ import com.banco.bancodopovo.jgi.modelo.Conta;
 import com.banco.bancodopovo.jgi.validations.Validations;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -51,7 +53,11 @@ public class TransferenciaController {
 
     @FXML
     private Label contaLabel;
-
+    @FXML
+    void sair(ActionEvent event) throws IOException{
+        Scene scene = WindowController.setSceneInWindow(event,"../telas/painel.fxml");
+        PanelController.setUserInfos(scene);
+    }
     @FXML
     void transferir(ActionEvent event) throws IOException,RuntimeException {
 
