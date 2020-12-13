@@ -14,7 +14,7 @@ public class ContaPoupanca implements Conta {
     private String numContaPoupanca;
     private String agencia;
     private double saldo;
-    private final double juros= 1.15; //Taxa Mensal
+    //private final double taxa = 0.1; //Taxa Mensal
 
     /** Construtor relacionado a classe ContaPoupanca */
     public ContaPoupanca(Usuario usuario, String agencia) {
@@ -33,19 +33,18 @@ public class ContaPoupanca implements Conta {
     /** operação de deposito */
     @Override
     public void depositar(double valorDepositado) {
-        saldo +=valorDepositado*juros;
+        if(this.podeDepositar(valorDepositado)) {
+            saldo += valorDepositado;
+        }
     }
 
     //metodo
     @Override
-    public boolean realizarSaque(double quantiaASacar) {
+    public void realizarSaque(double quantiaASacar) {
         //Tem saldo na conta?
-        if ((saldo-quantiaASacar) >=0){
-            saldo-= quantiaASacar;
-            return true;
+        if (this.podeSacar(this.getSaldo(),quantiaASacar)) {
+            saldo -= quantiaASacar;
         }
-        //sem saldo
-        return false;
     }
     /** getter e setter */
     public void setConta(String num){
@@ -69,15 +68,44 @@ public class ContaPoupanca implements Conta {
     public void consultarSaldo() {
         System.out.println("Saldo Atual da conta = " + saldo);
     }
-    /** método responsável por realizar a operação de transferencia em uma conta poupança */
+
     @Override
-    public boolean transferir(Conta conta, double valor) {
-        if (valor <= saldo) {
-            this.realizarSaque(valor);
-            conta.depositar(valor);
+    public boolean podeDepositar(double valor) {
+        if(valor > 0) {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean podeSacar(double saldo, double saque) {
+        if(saque <= 0) {
+            return false;
+        }
+        if ((saldo - saque) >= 0) {
+            return true;
+        }
+        return false;
+    }
+    /** método responsável por checar se uma transferência é possivel */
+    @Override
+    public boolean podeTransferir(double saldo, double valor) {
+        if(valor <= 0) {
+            return false;
+        }
+        if(valor <= saldo) {
+            return true;
+        }
+        return false;
+    }
+
+    /** método responsável por realizar a operação de transferencia em uma conta poupança */
+    @Override
+    public void transferir(Conta conta, double valor) {
+        if(this.podeTransferir(this.getSaldo(),valor)){
+            this.realizarSaque(valor);
+            conta.depositar(valor);
+        }
     }
 
     @Override
@@ -87,7 +115,7 @@ public class ContaPoupanca implements Conta {
                 ", numContaPoupanca='" + numContaPoupanca + '\'' +
                 ", agencia='" + agencia + '\'' +
                 ", saldo=" + saldo +
-                ", juros=" + juros +
+                //", juros=" + taxa +
                 '}';
     }
 }

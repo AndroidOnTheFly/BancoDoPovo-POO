@@ -10,7 +10,10 @@ import java.sql.SQLException;
  */
 public interface Conta {
     void depositar(double valorDepositado); //
-    boolean realizarSaque(double quantiaASacar) throws SQLException, ClassNotFoundException, IOException;
+    void realizarSaque(double quantiaASacar) throws SQLException, ClassNotFoundException, IOException;
     void consultarSaldo(); // RETRIEVE
-    boolean transferir(Conta conta, double valor) throws SQLException, ClassNotFoundException, IOException;
+    void transferir(Conta conta, double valor) throws SQLException, ClassNotFoundException, IOException;
+    boolean podeTransferir(double saldo, double valor)  throws SQLException, ClassNotFoundException, IOException;
+    boolean podeSacar(double saldo,double saque) throws ClassNotFoundException, IOException;
+    boolean podeDepositar(double valor) throws ClassNotFoundException, IOException;
 }

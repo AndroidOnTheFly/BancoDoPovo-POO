@@ -13,7 +13,7 @@ public class ContaCorrente implements Conta{
     private String numContaCorrent;
     private String agencia;
     private double saldo;
-    private final double juros= 1.15; //Taxa Mensal
+    private final double juros = 0.1; //Taxa Mensal
 
     /** construtor inicializador da classe ContaCorrente */
     public ContaCorrente(Usuario usuario , String agencia) {
@@ -60,19 +60,18 @@ public class ContaCorrente implements Conta{
     /** realiza a operação de deposito em um objeto do tipo conta */
     @Override
     public void depositar(double valorDepositado) {
-        saldo +=valorDepositado;
+        if(this.podeDepositar(valorDepositado)) {
+            saldo +=valorDepositado;
+        }
     }
 
     /** realiza a operação de saque em um objeto do tipo conta */
     @Override
-    public boolean realizarSaque(double quantiaASacar)  {
+    public void realizarSaque(double quantiaASacar)  {
         //Tem saldo na conta?
-        if ((saldo-quantiaASacar*juros) >=0){
-            saldo-= quantiaASacar*juros;
-            return true;
+        if(this.podeSacar(this.getSaldo(),quantiaASacar)) {
+            saldo -= (quantiaASacar + quantiaASacar * juros);
         }
-        //sem saldo
-        return false;
     }
 
     /** realiza a operação de consulta de saldo em um objeto do tipo conta*/
@@ -80,16 +79,45 @@ public class ContaCorrente implements Conta{
     public void consultarSaldo() {
         System.out.println("Saldo Atual da conta = " + saldo);
     }
-
-    /** realiza a operação de transferencia em um objeto do tipo conta */
     @Override
-    public boolean transferir(Conta conta, double valor)  {
-        if (valor*juros <= saldo) {
-            this.realizarSaque(valor*juros);
-            conta.depositar(valor*juros);
+    public boolean podeDepositar(double valor) {
+        if(valor > 0) {
             return true;
         }
         return false;
+    }
+
+
+    @Override
+    public boolean podeSacar(double saldo,double saque) {
+        if(saque <= 0) {
+            return false;
+        }
+        if (saldo - (saque + saque*juros) >= 0){
+            return true;
+        }
+        return false;
+    }
+
+    /** método responsável por checar se uma transferência é possivel */
+    @Override
+    public boolean podeTransferir(double saldo, double valor) {
+        if(valor <= 0) {
+            return false;
+        }
+        if (saldo >= valor + valor * juros) {
+            return true;
+        }
+        return false;
+    }
+
+    /** realiza a operação de transferencia em um objeto do tipo conta */
+    @Override
+    public void transferir(Conta conta, double valor)  {
+        if(this.podeTransferir(this.getSaldo(),valor)) {
+            this.realizarSaque(valor);
+            conta.depositar(valor);
+        }
     }
 
     @Override

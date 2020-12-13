@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 /**
  * Classe principal da aplicação responsável por inicializar a tela primária
  * @author joão pedro fernandes, Iarlyson Santana e Gustavo Araujo

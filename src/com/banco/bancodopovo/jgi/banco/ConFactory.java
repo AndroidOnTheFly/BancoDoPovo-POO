@@ -1,7 +1,6 @@
 package com.banco.bancodopovo.jgi.banco;
 
 import org.postgresql.util.PSQLException;
-
 import java.sql.*;
 
 /* Classe que faz e retorna a conexão com o banco de dados postgresql
@@ -15,9 +14,8 @@ public class ConFactory {
     private String senha;
     private Connection connection;
 
-
-    String nomebanco = "postsgres" ;//coloque o nome do banco de dados aqui
-    String portaAcesso = "8975424"; // coloque a porta de acesso aqui
+    String nomebanco = "postgres" ;//coloque o nome do banco de dados aqui
+    String portaAcesso = "5432"; // coloque a porta de acesso aqui
 
     /** Função construtora que inicia a conexão com o banco de dados pré definido */
     public ConFactory(){

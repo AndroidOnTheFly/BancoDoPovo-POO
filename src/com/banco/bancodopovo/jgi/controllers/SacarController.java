@@ -59,10 +59,10 @@ public class SacarController {
             valorSacado = Double.parseDouble(valorSaqueInput.getText());
 
                 if(PanelController.tipoContaAtiva == 1) {
+                    boolean podeSacar =  PanelController.contaCorrente.podeSacar( PanelController.contaCorrente.getSaldo(),valorSacado);
 
-                    boolean sacar = PanelController.contaCorrente.realizarSaque(valorSacado);
-
-                    if(sacar){
+                    if(podeSacar){
+                        PanelController.contaCorrente.realizarSaque(valorSacado);
                         novoSaldo = PanelController.contaCorrente.getSaldo();
                         boolean success = new ContaCorrenteDaoBanco().updateConta(PanelController.contaCorrente,novoSaldo);
                         if(success){
@@ -80,10 +80,10 @@ public class SacarController {
                 }
                 else if(PanelController.tipoContaAtiva == 2){
 
-                    boolean sacar = PanelController.contaPoupanca.realizarSaque(valorSacado);
+                    boolean podeSacar = PanelController.contaPoupanca.podeSacar(PanelController.contaPoupanca.getSaldo(),valorSacado);
 
-                    if(sacar) {
-
+                    if(podeSacar) {
+                        PanelController.contaPoupanca.realizarSaque(valorSacado);
                         novoSaldo = PanelController.contaPoupanca.getSaldo();
 
                         boolean success = new ContaPoupancaDaoBanco().updateConta(PanelController.contaPoupanca, novoSaldo);
