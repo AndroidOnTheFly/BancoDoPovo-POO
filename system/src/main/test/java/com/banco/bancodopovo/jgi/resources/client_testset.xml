@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dataset>
+    <cliente cpf="10882651463" nome="joao pedro" email="abc@hotmail.com" cidade="Cajazeiras" estado="paraiba" nascimento="1997-12-18" tipoconta="Corrente" senha="123456"/>
+    <cliente cpf="12701115078" nome="pedro arthur" email="pedro@hotmail.com" cidade="Cajazeiras" estado="paraiba" nascimento="1997-02-07" tipoconta="Corrente" senha="123456"/>
+    <contacorrente numconta="10048889" agencia="1165-7" saldo="0.00" cpf="12701115078"></contacorrente>
+</dataset>

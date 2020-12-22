@@ -8,7 +8,6 @@ import java.sql.*;
  * @author João Pedro, Iarlyson Santana e Gustavo
  */
 public class ConFactory {
-
     private String url;
     private String usuario;
     private String senha;
@@ -19,10 +18,7 @@ public class ConFactory {
 
     /** Função construtora que inicia a conexão com o banco de dados pré definido */
     public ConFactory(){
-
         /** os dados do postgresql devem ser referenciados aqui */
-
-
         url = "jdbc:postgresql://localhost:" + portaAcesso + "/" + nomebanco;
         usuario = "postgres";
         senha = "8975424";
@@ -36,6 +32,12 @@ public class ConFactory {
             e.printStackTrace();
         }
     }
+
+    public ConFactory setConnection(Connection conexao) {
+        connection = conexao;
+        return this;
+    }
+
     /** Função responsável por executar um comando SQL de alteração de dados*/
     public int executeSQL(String sql, Boolean closeConnection){
         try{

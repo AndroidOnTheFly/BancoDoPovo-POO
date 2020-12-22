@@ -20,6 +20,9 @@ public class ContaCorrenteDaoBanco implements ContaDao {
         connection = new ConFactory();
     }
 
+    public void setConnection(ConFactory conexao) {
+        connection = conexao;
+    }
     /** método responsável por inserir uma conta corrente no banco de dados */
     @Override
     public boolean insertConta(Conta conta) {

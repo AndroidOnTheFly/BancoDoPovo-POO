@@ -4,6 +4,8 @@ import com.banco.bancodopovo.jgi.banco.ConFactory;
 import com.banco.bancodopovo.jgi.entidades.Usuario;
 import com.banco.bancodopovo.jgi.interfaceDao.UsuarioDao;
 import com.banco.bancodopovo.jgi.validations.Validations;
+
+import java.sql.Connection;
 import java.sql.ResultSet;
 
 /**
@@ -16,7 +18,11 @@ public class UsuarioDaoBanco implements UsuarioDao {
     private ConFactory connection;
 
     public UsuarioDaoBanco(){
-       connection = new ConFactory();
+        connection = new ConFactory();
+    }
+
+    public void setConnection(ConFactory conexao) {
+        this.connection = conexao;
     }
 
     /** método responsável por inserir um usuário no banco de dados */
